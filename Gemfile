@@ -21,6 +21,7 @@ gem 'rails-settings-cached', '0.3.1'
 gem 'draper'
 gem 'decent_exposure'
 gem 'inherited_resources'
+gem 'colorbox-rails'
 
 
 group :development do
