@@ -10,3 +10,4 @@ pl:
   common:
     destroy: "Usuń"
     confirm: "Jesteś pewien?"
+    new: "Dodaj"

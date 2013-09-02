@@ -11,4 +11,9 @@
         %tr
           %td= contribution.amount
           %td= contribution.created_at
-          %td= link_to(t('common.destroy'), admin_user_contribution_path(user), data: { confirm: t('common.confirm') }, method: :delete, class: 'btn btn-mini')
+          %td= link_to t('common.destroy'), admin_user_contribution_path(parent, contribution),
+                      data: { confirm: t('common.confirm') },
+                      method: :delete,
+                      class: 'btn btn-mini'
+
+  = link_to t('common.new'), new_admin_user_contribution_path(parent), class: 'btn'
