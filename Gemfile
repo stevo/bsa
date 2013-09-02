@@ -17,7 +17,11 @@ gem 'pg'
 gem 'rolify'
 gem 'simple_form', '>= 3.0.0.rc'
 gem 'thin'
-gem "rails-settings-cached", "0.3.1"
+gem 'rails-settings-cached', '0.3.1'
+gem 'draper'
+gem 'decent_exposure'
+gem 'inherited_resources'
+
 
 group :development do
   gem 'better_errors'
