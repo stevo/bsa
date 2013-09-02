@@ -11,6 +11,5 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
-
-
+  has_many :contributions
 end
