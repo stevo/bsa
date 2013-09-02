@@ -2,3 +2,11 @@ pl:
   users:
     index:
       header: Użytkownicy
+  admin:
+    user:
+      contributions:
+        index:
+          header: "Składki"
+  common:
+    destroy: "Usuń"
+    confirm: "Jesteś pewien?"

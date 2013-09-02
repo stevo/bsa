@@ -1,0 +1,14 @@
+%h3= t('admin.user.contributions.index.header')
+.span8
+  %table.table.table-condensed
+    %thead
+      %tr
+        %th Kwota
+        %th Data dodania
+        %th
+    %tbody
+      - collection.each do |contribution|
+        %tr
+          %td= contribution.amount
+          %td= contribution.created_at
+          %td= link_to(t('common.destroy'), admin_user_contribution_path(user), data: { confirm: t('common.confirm') }, method: :delete, class: 'btn btn-mini')

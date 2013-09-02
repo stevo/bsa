@@ -5,7 +5,7 @@ Bsa::Application.routes.draw do
 
   namespace :admin do
     resources :users do
-      resources :contributions
+      resources :contributions, controller: 'user/contributions'
     end
   end
 end
