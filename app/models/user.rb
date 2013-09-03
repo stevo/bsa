@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
          :validatable
 
   has_many :contributions
+  has_one :membership
 end
