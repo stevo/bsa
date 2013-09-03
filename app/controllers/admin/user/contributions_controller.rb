@@ -5,11 +5,21 @@ class Admin::User::ContributionsController < Admin::AdminController
 
   def create
     super do |format|
-      format.html { redirect_to admin_user_contributions_path(parent) }
+      format.html { redirect_to_index }
+    end
+  end
+
+  def destroy
+    super do |format|
+      format.html { redirect_to_index }
     end
   end
 
   private
+
+  def redirect_to_index
+    redirect_to admin_user_contributions_path(parent)
+  end
 
   def permitted_params
     params.permit(contribution: [:amount])
