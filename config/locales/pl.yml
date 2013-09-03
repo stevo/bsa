@@ -16,3 +16,5 @@ pl:
       dashboard:
         show:
           header: "Witaj %{name}!"
+          account_header: "Twoje konto"
+          association_header: "Stowarzyszenie BSA"
