@@ -32,3 +32,16 @@ pl:
     sessions:
       user:
         signed_in: "Zalogowano pomyślnie"
+  simple_form:
+    labels:
+      user:
+        email: "Email"
+        name: "Nazwa użytkownika"
+        membership_name: "Status członkostwa"
+        created_at: "Data rejestracji"
+        role: "Rola"
+  links:
+    user:
+      rights: "Uprawnienia"
+      destroy: "Usuń użytkownika"
+      contributions: "Składki"

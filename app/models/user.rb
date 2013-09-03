@@ -14,9 +14,13 @@ class User < ActiveRecord::Base
   has_many :contributions
   has_one :membership
 
-  delegate :approved?, :state, to: :membership, prefix: true
+  delegate :approved?, to: :membership, prefix: true
 
   def guest?
     !membership
+  end
+
+  def membership_state
+    guest? ? 'guest' : membership.state
   end
 end
