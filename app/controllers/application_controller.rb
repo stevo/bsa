@@ -7,4 +7,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+  decent_configuration do
+    strategy DecentExposure::StrongParametersStrategy
+  end
 end

@@ -1,0 +1,9 @@
+= simple_form_for user, url: admin_user_rights_path(user), html: {method: :put} do |f|
+  = f.input :role_ids,
+  collection: Role.all,
+  as: :radio_buttons,
+  label_method: ->(t) {t.name.titleize},
+  label: false,
+  item_wrapper_class: 'inline',
+  checked: user.role_ids.first
+  = f.submit
