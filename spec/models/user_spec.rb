@@ -4,9 +4,9 @@ describe User do
 
   before do
     @attr = {
-      :name => "Example User",
-      :email => "user@example.com",
-      :password => "changeme",
+      :name                  => "Example User",
+      :email                 => "user@example.com",
+      :password              => "changeme",
       :password_confirmation => "changeme"
     }
   end
@@ -78,7 +78,7 @@ describe User do
 
     it "should reject short passwords" do
       short = "a" * 5
-      hash = @attr.merge(:password => short, :password_confirmation => short)
+      hash  = @attr.merge(:password => short, :password_confirmation => short)
       User.new(hash).should_not be_valid
     end
 
@@ -101,6 +101,17 @@ describe User do
   end
 
 
+  describe "#guest?" do
+    subject { create(:user) }
 
+    context "new user" do
+      it { expect(subject.guest?).to be_true }
+    end
 
+    context "user has membership" do
+      before { create(:membership, user_id: subject.id)}
+
+      it { expect(subject.guest?).to be_false }
+    end
+  end
 end
