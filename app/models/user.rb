@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
 
   has_many :contributions
   has_one :membership
+
+  def guest?
+    !membership
+  end
 end
