@@ -21,3 +21,8 @@ pl:
   activemodel:
     user:
       guest_alert: "Nie jesteś jeszcze członkiem stowarzyszenia BSA"
+      join_association_link: "Wstąp do BSA"
+  devise:
+    sessions:
+      user:
+        signed_in: "Zalogowano pomyślnie"

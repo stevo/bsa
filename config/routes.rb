@@ -12,5 +12,6 @@ Bsa::Application.routes.draw do
 
   namespace :user do
     resource :dashboard, only: [:show], controller: 'dashboard'
+    resource :membership, only: [:create], controller: 'membership'
   end
 end
