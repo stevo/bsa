@@ -11,3 +11,8 @@ pl:
     destroy: "Usuń"
     confirm: "Jesteś pewien?"
     new: "Dodaj"
+  user:
+    home:
+      dashboard:
+        show:
+          header: "Witaj %{name}!"
