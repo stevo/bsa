@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130903134713) do
+ActiveRecord::Schema.define(version: 20130903210133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,5 +92,21 @@ ActiveRecord::Schema.define(version: 20130903134713) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
+  create_table "votes", force: true do |t|
+    t.integer  "voting_id"
+    t.integer  "voter_id"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "votings", force: true do |t|
+    t.integer  "membership_id"
+    t.boolean  "closed"
+    t.date     "finishes_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
