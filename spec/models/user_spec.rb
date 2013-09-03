@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
 
-  before(:each) do
+  before do
     @attr = {
       :name => "Example User",
       :email => "user@example.com",
@@ -51,7 +51,7 @@ describe User do
 
   describe "passwords" do
 
-    before(:each) do
+    before do
       @user = User.new(@attr)
     end
 
@@ -86,7 +86,7 @@ describe User do
 
   describe "password encryption" do
 
-    before(:each) do
+    before do
       @user = User.create!(@attr)
     end
 
@@ -99,5 +99,8 @@ describe User do
     end
 
   end
+
+
+
 
 end
