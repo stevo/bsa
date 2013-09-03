@@ -1,24 +1,18 @@
 require 'spec_helper'
 
 describe Admin::UsersController do
-
-  before do
-    @user = FactoryGirl.create(:user)
-    sign_in @user
-  end
+  include_context 'logged in as user'
 
   describe "GET 'show'" do
-    
+
     it "should be successful" do
-      get :show, id: @user.id
+      get :show, id: user.id
       response.should be_success
     end
-    
-    it "should find the right user" do
-      get :show, id: @user.id
-      assigns(:user).should == @user
-    end
-    
-  end
 
+    it "should find the right user" do
+      get :show, id: user.id
+      expect(subject.user).should == user
+    end
+  end
 end
