@@ -3,7 +3,7 @@ class Admin::User::RightsController < Admin::AdminController
 
   def update
     user.save
-    redirect_to admin_users_path, :notice => "User updated."
+    redirect_to admin_users_path, notice: "User updated."
   end
 
   private
