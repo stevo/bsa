@@ -21,7 +21,7 @@ gem 'draper'
 gem 'decent_exposure'
 gem 'inherited_resources'
 gem 'colorbox-rails'
-
+gem 'state_machine'
 
 group :development do
   gem 'better_errors'
