@@ -2,8 +2,12 @@ class Membership < ActiveRecord::Base
   belongs_to :user
 
   state_machine :state, initial: :new do
-    event :activate do
-      transition :new => :active
+    event :poll do
+      transition :new => :being_polled
+    end
+
+    event :approve do
+      transition :being_polled => :approved
     end
   end
 end

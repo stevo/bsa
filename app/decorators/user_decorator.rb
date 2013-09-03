@@ -6,8 +6,8 @@ class UserDecorator < Draper::Decorator
       h.content_tag(:p, class: 'text-center') do
         h.link_to I18n.t('activemodel.user.join_association_link'), h.user_membership_path, method: :post, class: 'btn btn-success btn-lg'
       end
-    else
-      h.content_tag(:div,'TODO', class: 'alert alert-success')
+    elsif !object.membership_approved?
+      h.content_tag(:div,I18n.t("activemodel.membership.statuses.#{object.membership_state}.description"), class: 'alert alert-info')
     end
   end
 end

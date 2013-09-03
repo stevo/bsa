@@ -22,6 +22,12 @@ pl:
     user:
       guest_alert: "Nie jesteś jeszcze członkiem stowarzyszenia BSA"
       join_association_link: "Wstąp do BSA"
+    membership:
+      statuses:
+        new:
+          description: "Twoje zgłoszenie oczekuje na głosowanie"
+        being_polled:
+          description: "Twoje zgłoszenie jest w trakcie głosowania"
   devise:
     sessions:
       user:
