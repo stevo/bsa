@@ -120,6 +120,10 @@ GEM
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
+    interactor (2.0.1)
+    interactor-rails (1.0.1)
+      interactor (< 3)
+      rails (>= 3, < 5)
     jbuilder (1.5.1)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -257,6 +261,7 @@ DEPENDENCIES
   html2haml
   hub
   inherited_resources
+  interactor-rails (~> 1.0)
   jbuilder (~> 1.2)
   jquery-rails
   pg

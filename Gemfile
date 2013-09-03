@@ -19,6 +19,7 @@ gem 'simple_form', '>= 3.0.0.rc'
 gem 'thin'
 gem 'draper'
 gem 'decent_exposure'
+gem "interactor-rails", "~> 1.0"
 gem 'inherited_resources'
 gem 'colorbox-rails'
 gem 'state_machine'
