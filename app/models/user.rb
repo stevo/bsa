@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :contributions
   has_one :membership
 
-  delegate :approved?, to: :membership, prefix: true
+  delegate :approved?, :new?, to: :membership, prefix: true, allow_nil: true
 
   def guest?
     !membership

@@ -53,3 +53,9 @@ pl:
         being_polled: "Głosowanie"
         approved: "Przyjęty"
         disapproved: "Odrzucony"
+    voting:
+      kind:
+        open: "Głosowanie otwarte"
+  flashes:
+    voting:
+      create: "Głosowanie rozpoczęte"

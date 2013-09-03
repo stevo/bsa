@@ -9,6 +9,12 @@ class UserDecorator < Draper::Decorator
     end
   end
 
+  def membership_actions
+    if object.membership_new?
+      h.link_to I18n.t('enumerations.voting.kind.open'), h.admin_user_votings_path(object), method: :post
+    end
+  end
+
   private
 
   def membership_state_full

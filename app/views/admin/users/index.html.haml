@@ -6,6 +6,7 @@
         %th= t('simple_form.labels.user.name')
         %th= t('simple_form.labels.user.email')
         %th= t('simple_form.labels.user.membership_name')
+        %th
         %th= t('simple_form.labels.user.created_at')
         %th= t('simple_form.labels.user.role')
         %th
@@ -15,6 +16,7 @@
           %td= link_to decorated_user.name, [:admin, decorated_user]
           %td= decorated_user.email
           %td= decorated_user.membership_state
+          %td= decorated_user.membership_actions
           %td= decorated_user.created_at.to_date
           %td= decorated_user.roles.first.name.titleize unless decorated_user.roles.first.nil?
           %td= link_to t('links.user.contributions'), admin_user_contributions_path(decorated_user), class: 'btn btn-mini'
