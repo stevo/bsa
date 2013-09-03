@@ -1,12 +1,10 @@
 class Admin::UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
+  expose(:decorated_collection) { User.all.decorate }
 
   def show
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user], :as => :admin)
@@ -15,7 +13,7 @@ class Admin::UsersController < ApplicationController
       redirect_to users_path, :alert => "Unable to update user."
     end
   end
-    
+
   def destroy
     user = User.find(params[:id])
     unless user == current_user

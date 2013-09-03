@@ -1,6 +1,7 @@
 class UserDecorator < Draper::Decorator
+  delegate_all
 
-  def association_status
+  def membership_state_full
     if object.guest?
       h.content_tag(:div, I18n.t('activemodel.user.guest_alert'), class: 'alert alert-warning') <<
       h.content_tag(:p, class: 'text-center') do
@@ -9,5 +10,9 @@ class UserDecorator < Draper::Decorator
     elsif !object.membership_approved?
       h.content_tag(:div,I18n.t("activemodel.membership.statuses.#{object.membership_state}.description"), class: 'alert alert-info')
     end
+  end
+
+  def membership_state
+    I18n.t("enumerations.membership.state.#{object.membership_state}")
   end
 end

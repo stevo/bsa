@@ -45,3 +45,11 @@ pl:
       rights: "Uprawnienia"
       destroy: "Usuń użytkownika"
       contributions: "Składki"
+  enumerations:
+    membership:
+      state:
+        guest: "Gość"
+        new: "Złożony wniosek"
+        being_polled: "Głosowanie"
+        approved: "Przyjęty"
+        disapproved: "Odrzucony"

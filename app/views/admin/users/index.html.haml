@@ -12,13 +12,13 @@
         %th
         %th
     %tbody
-      - @users.each do |user|
+      - decorated_collection.each do |decorated_user|
         %tr
-          %td= link_to user.name, [:admin, user]
-          %td= user.email
-          %td= user.membership_state
-          %td= user.created_at.to_date
-          %td= user.roles.first.name.titleize unless user.roles.first.nil?
-          %td= link_to t('links.user.rights'), edit_admin_user_rights_path(user), class: 'btn btn-mini', data: {colorbox: true}
-          %td= link_to(t('links.user.destroy'), admin_user_path(user), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-mini') unless user == current_user
-          %td= link_to t('links.user.contributions'), admin_user_contributions_path(user), class: 'btn btn-mini'
+          %td= link_to decorated_user.name, [:admin, decorated_user]
+          %td= decorated_user.email
+          %td= decorated_user.membership_state
+          %td= decorated_user.created_at.to_date
+          %td= decorated_user.roles.first.name.titleize unless decorated_user.roles.first.nil?
+          %td= link_to t('links.user.rights'), edit_admin_user_rights_path(decorated_user), class: 'btn btn-mini', data: {colorbox: true}
+          %td= link_to(t('links.user.destroy'), admin_user_path(decorated_user), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-mini') unless decorated_user.object == current_user
+          %td= link_to t('links.user.contributions'), admin_user_contributions_path(decorated_user), class: 'btn btn-mini'
