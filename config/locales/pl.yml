@@ -58,6 +58,11 @@ pl:
     voting:
       kind:
         open: "Głosowanie otwarte"
+    vote:
+      state:
+        for: "Za"
+        against: "Przeciw"
+        hold: "Wstrzymuję się"
   flashes:
     voting:
       create: "Głosowanie rozpoczęte"
