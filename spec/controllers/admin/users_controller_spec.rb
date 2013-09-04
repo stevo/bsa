@@ -7,12 +7,12 @@ describe Admin::UsersController do
 
     it "should be successful" do
       get :show, id: user.id
-      response.should be_success
+      expect(response).to be_success
     end
 
     it "should find the right user" do
       get :show, id: user.id
-      expect(subject.user).should == user
+      expect(subject.user).to eq user
     end
   end
 end
