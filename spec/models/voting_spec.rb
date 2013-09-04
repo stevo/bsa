@@ -7,7 +7,7 @@ describe Voting do
     subject { described_class }
 
     describe ".available_to_answer_for" do
-      let(:voter) { create(:user) }
+      let(:voter) { create(:user, membership: create(:approved_membership)) }
 
       context "active voting for voter exists" do
         let!(:voting_for_voter) do
@@ -22,18 +22,24 @@ describe Voting do
           context "active, closed voting for other candidate exists" do
             let!(:closed_voting_for_other_candidate) do
               create(:voting, :active, closed: true, membership: create(:membership_being_polled, user: create(:user)))
+            end
 
-              expect{ subject.available_to_answer_for(voter).to include voting_for_other_candidate }
+            it { expect(subject.available_to_answer_for(voter)).to include voting_for_other_candidate }
 
-              expect{ subject.available_to_answer_for(voter).to_not include voting_for_voter }
+            it { expect(subject.available_to_answer_for(voter)).to_not include voting_for_voter }
 
-              expect{ subject.available_to_answer_for(voter).to_not include closed_voting_for_other_candidate }
+            it { expect(subject.available_to_answer_for(voter)).to_not include closed_voting_for_other_candidate }
 
-              context "voter is admin" do
-                before { voter.add_role(:admin) }
+            context "voter is admin" do
+              before { voter.add_role(:admin) }
 
-                expect{ subject.available_to_answer_for(voter).to include closed_voting_for_other_candidate }
-              end
+              it { expect(subject.available_to_answer_for(voter)).to include closed_voting_for_other_candidate }
+            end
+
+            context "voter has no approved membership" do
+              let!(:unapproved_voter) { create(:user, membership: create(:membership)) }
+
+              xit { expect(subject.available_to_answer_for(unapproved_voter)).to_not include voting_for_other_candidate }
             end
           end
         end
