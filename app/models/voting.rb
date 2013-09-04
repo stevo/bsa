@@ -9,7 +9,7 @@ class Voting < ActiveRecord::Base
 
   scope :available_to_answer_for, ->(voter) do
     _scope = active.not_for(voter).not_voted_by(voter)
-    voter.admin? ? _scope : _scope.where(closed: true)
+    voter.admin? ? _scope : _scope.where(closed: false)
   end
 
   scope :not_voted_by, ->(voter) { joins("LEFT OUTER JOIN votes AS v ON v.voting_id = votings.id AND v.voter_id = #{voter.id}").where('v.id' => nil) }
