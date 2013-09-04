@@ -23,6 +23,7 @@ gem "interactor-rails", "~> 1.0"
 gem 'inherited_resources'
 gem 'colorbox-rails'
 gem 'state_machine'
+gem 'squeel'
 
 group :development do
   gem 'better_errors'
