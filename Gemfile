@@ -26,11 +26,6 @@ gem 'state_machine'
 gem 'squeel'
 
 group :development do
-  gem 'pry'
-  gem 'pry-remote'
-  gem 'pry-stack_explorer'
-  gem 'pry-debugger'
-  gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -44,6 +39,11 @@ group :development do
 end
 
 group :development, :test do
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
+  gem 'better_errors'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
