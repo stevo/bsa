@@ -25,10 +25,6 @@ class Voting < ActiveRecord::Base
     (voted_for.to_f / voted.to_f) > ACCEPTANCE_THRESHOLD
   end
 
-  def allowed_to_vote
-    Membership.active.count
-  end
-
   def voted
     votes.count
   end
