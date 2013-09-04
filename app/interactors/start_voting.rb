@@ -2,7 +2,7 @@ class StartVoting
   include Interactor
 
   def perform
-    if membership.poll!
+    if membership.poll
       membership.create_voting
     else
       context.fail!
