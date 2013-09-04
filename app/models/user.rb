@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     !membership
   end
 
+  def admin?
+    has_role?(:admin)
+  end
+
   def membership_state
     guest? ? 'guest' : membership.state
   end
