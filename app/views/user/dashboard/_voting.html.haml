@@ -1,0 +1,7 @@
+%div.panel.panel-default
+  %div.panel-heading= t('user.home.dashboard.show.voting_header')
+  %div.panel-body
+    - if voting
+      %h2= voting.candidate_name
+    - else
+      = t('user.home.dashboard.show.no_voting_message')
