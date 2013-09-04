@@ -23,6 +23,19 @@ FactoryGirl.define do
       membership { create(:approved_membership)}
     end
 
+    factory :passing_voting do
+      after(:create) do |voting|
+        FactoryGirl.create_list(:vote, 1, voting: voting, state: 'for')
+      end
+    end
+
+    factory :not_passing_voting do
+      after(:create) do |voting|
+        FactoryGirl.create_list(:vote, 1, voting: voting, state: 'against')
+      end
+    end
+
+
     factory :voting_with_votes do
       ignore do
         votes_count 5
