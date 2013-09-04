@@ -5,7 +5,7 @@ Bsa::Application.routes.draw do
 
   namespace :admin do
     resources :users do
-      resources :votings, only: [:create], controller: 'user/votings'
+      resources :votings, only: [:create, :update], controller: 'user/votings'
       resources :contributions, controller: 'user/contributions'
       resource :rights, controller: 'user/rights'
     end

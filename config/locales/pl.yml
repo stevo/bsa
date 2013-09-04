@@ -47,6 +47,8 @@ pl:
       rights: "Uprawnienia"
       destroy: "Usuń użytkownika"
       contributions: "Składki"
+    voting:
+      conclude: "Rozstrzygnij"
   enumerations:
     membership:
       state:
@@ -66,3 +68,4 @@ pl:
   flashes:
     voting:
       create: "Głosowanie rozpoczęte"
+      update: "Głosowanie zakończone"
