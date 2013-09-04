@@ -88,4 +88,85 @@ describe User do
       it { expect(subject.guest?).to be_false }
     end
   end
+
+  describe "#membership_approved?" do
+    context "user has no membership" do
+      let(:user) { create(:user) }
+      it { expect(user.membership_approved?).to be_nil }
+    end
+
+    context "user has new membership" do
+      let(:user) { create(:user, membership: create(:new_membership)) }
+      it { expect(user.membership_approved?).to be_false }
+    end
+
+    context "user has approved membership" do
+      let(:user) { create(:user, membership: create(:approved_membership)) }
+      it { expect(user.membership_approved?).to be_true }
+    end
+  end
+
+  describe "#membership_new?" do
+    context "user has no membership" do
+      let(:user) { create(:user) }
+      it { expect(user.membership_new?).to be_nil }
+    end
+
+    context "user has new membership" do
+      let(:user) { create(:user, membership: create(:new_membership)) }
+      it { expect(user.membership_new?).to be_true }
+    end
+
+    context "user has approved membership" do
+      let(:user) { create(:user, membership: create(:approved_membership)) }
+      it { expect(user.membership_new?).to be_false }
+    end
+  end
+
+  describe "#membership_being_polled?" do
+    context "user has no membership" do
+      let(:user) { create(:user) }
+      it { expect(user.membership_being_polled?).to be_nil }
+    end
+
+    context "user has new membership" do
+      let(:user) { create(:user, membership: create(:new_membership)) }
+      it { expect(user.membership_being_polled?).to be_false }
+    end
+
+    context "user has membership being polled" do
+      let(:user) { create(:user, membership: create(:membership_being_polled)) }
+      it { expect(user.membership_being_polled?).to be_true }
+    end
+  end
+
+  describe "#admin?" do
+    subject { create(:user) }
+
+    context "user does not have admin role" do
+      it { expect(subject.admin?).to be_false }
+    end
+
+    context "user has admin role" do
+      before { subject.add_role(:admin) }
+
+      it { expect(subject.admin?).to be_true }
+    end
+  end
+
+  describe "#membership_state" do
+    context "user has no membership" do
+      let(:user) { create(:user) }
+
+      it { expect(user.membership_state).to eq 'guest' }
+    end
+
+    %w(new being_polled approved disapproved).each do |state|
+      context "user has #{state} membership" do
+        let(:user) { create(:user, membership: create(:membership, state: state)) }
+
+        it { expect(user.membership_state).to eq state }
+      end
+    end
+  end
 end
