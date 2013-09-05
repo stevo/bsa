@@ -16,6 +16,9 @@ class Voting < ActiveRecord::Base
   scope :active, -> { joins(:membership).where('memberships.state' => 'being_polled', active: true) }
   scope :not_for, ->(candidate) { joins(:membership).where("memberships.user_id <> ?", candidate.id) }
 
+  def self.get_random_for(voter)
+    available_to_answer_for(voter).order("RANDOM()").first
+  end
 
   def deactivate!
     update_column(:active, false)

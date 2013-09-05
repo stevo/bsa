@@ -5,10 +5,9 @@ describe Voting do
 
   context "scopes" do
     subject { described_class }
+    let(:voter) { create(:user, membership: create(:approved_membership)) }
 
     describe ".available_to_answer_for" do
-      let(:voter) { create(:user, membership: create(:approved_membership)) }
-
       context "active voting for voter exists" do
         let!(:voting_for_voter) do
           create(:voting, :active, membership: create(:membership_being_polled, user: voter))
@@ -102,7 +101,27 @@ describe Voting do
         it { expect(subject.not_for(candidate)).to include voting }
       end
     end
+
+
+    describe ".get_random_for" do
+      context "active voting for voter exists" do
+        let!(:voting_for_voter) do
+          create(:voting, :active, membership: create(:membership_being_polled, user: voter))
+        end
+
+        context "active voting for other candidate exists" do
+          let!(:voting_for_other_candidate) do
+            create(:voting, :active, membership: create(:membership_being_polled, user: create(:user)))
+          end
+
+          it { expect(subject.get_random_for(voter)).to eq voting_for_other_candidate }
+
+          it { expect(subject.get_random_for(voter)).to_not eq voting_for_voter }
+        end
+      end
+    end
   end
+
 
   describe "#candidate_name" do
     subject { create(:voting, candidate: create(:user, name: 'Tony')) }
