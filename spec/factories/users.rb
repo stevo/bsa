@@ -14,5 +14,14 @@ FactoryGirl.define do
         user.add_role(:admin)
       end
     end
+
+    trait :new_membership do
+      membership { create(:new_membership) }
+    end
+
+    trait :membership_being_polled do
+      membership { create(:membership_being_polled) }
+    end
+
   end
 end
