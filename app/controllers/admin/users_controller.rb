@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::AdminController
   expose(:decorated_collection) { User.all.decorate }
   expose(:user, model: User, attributes: :permitted_params)
   expose(:decorated_user){ user.decorate }

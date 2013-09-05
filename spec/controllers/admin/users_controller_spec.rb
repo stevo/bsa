@@ -10,14 +10,14 @@ shared_context "params contain user id" do
 end
 
 describe Admin::UsersController do
-  include_context 'logged in as user'
+  include_context 'logged in as admin'
 
   context 'exposures' do
     describe '#decorated_collection' do
       context "additional user exists" do
         let!(:some_user) { create(:user) }
 
-        it { expect(subject.decorated_collection).to include user }
+        it { expect(subject.decorated_collection).to include admin }
         it { expect(subject.decorated_collection).to include some_user }
         it { expect(subject.decorated_collection).to have(2).items }
       end
@@ -37,15 +37,24 @@ describe Admin::UsersController do
     end
   end
 
-  describe "GET 'show'" do
+  describe "GET 'index'" do
     it 'should be successful' do
-      get :show, id: user.id
+      get :index
+      expect(response).to be_success
+    end
+  end
+
+  describe "GET 'show'" do
+    include_context "some user exists"
+
+    it 'should be successful' do
+      get :show, id: some_user.id
       expect(response).to be_success
     end
 
     it 'should find the right user' do
-      get :show, id: user.id
-      expect(subject.user).to eq user
+      get :show, id: some_user.id
+      expect(subject.user).to eq some_user
     end
   end
 
@@ -74,6 +83,6 @@ describe Admin::UsersController do
       end
     end
 
-    it { expect { delete :destroy, id: user.id }.to_not change { User.count }.by(-1) }
+    it { expect { delete :destroy, id: admin.id }.to_not change { User.count }.by(-1) }
   end
 end
