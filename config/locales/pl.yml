@@ -38,6 +38,8 @@ pl:
     sessions:
       user:
         signed_in: "Zalogowano pomyślnie"
+      new:
+        header: "Logowanie"
     registrations:
       edit:
         header: "Zarządzanie kontem"
