@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :vote do
-    voting_id 1
-    voter_id 1
-    state "MyString"
+    sequence :voting_id
+    sequence :voter_id
+    state 'for'
   end
 end

@@ -28,6 +28,14 @@ describe User::VotesController do
         it "vote has proper state" do
           expect(last_vote.state).to eq 'for'
         end
+
+        context "voting again for same person" do
+          it "does not create new vote for voting" do
+            expect do
+              post :create, voting_id: voting.id, vote: {state: 'for'}
+            end.to_not change { voting.reload.votes.count }.by(1)
+          end
+        end
       end
     end
   end
