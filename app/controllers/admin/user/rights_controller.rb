@@ -9,6 +9,6 @@ class Admin::User::RightsController < Admin::AdminController
   private
 
   def permitted_params
-    params.require(:user).permit(:role_ids)
+    params.require(:user).permit(role_ids: [])
   end
 end

@@ -1,9 +1,5 @@
 require 'spec_helper'
 
-shared_context "some user exists" do
-  let!(:some_user) { create(:user) }
-end
-
 shared_context "params contain user id" do
   include_context "some user exists"
   before { controller.params[:id] = some_user.id }
