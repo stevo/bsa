@@ -11,6 +11,8 @@ pl:
     destroy: "Usuń"
     confirm: "Jesteś pewien?"
     new: "Dodaj"
+    back: "Powrót"
+    update: "Zapisz zmiany"
   user:
     home:
       dashboard:
@@ -34,6 +36,11 @@ pl:
     sessions:
       user:
         signed_in: "Zalogowano pomyślnie"
+    registrations:
+      edit:
+        header: "Zarządzanie kontem"
+        details_header: "Twoje dane"
+        cancellation_header: "Usunięcie konta"
   simple_form:
     labels:
       user:
@@ -42,6 +49,9 @@ pl:
         membership_name: "Status członkostwa"
         created_at: "Data rejestracji"
         role: "Rola"
+        password: 'Hasło'
+        password_confirmation: 'Potwierdzenie hasła'
+        current_password: 'Obecne hasło'
   links:
     user:
       rights: "Uprawnienia"
@@ -49,6 +59,8 @@ pl:
       contributions: "Składki"
     voting:
       conclude: "Rozstrzygnij"
+    account:
+      cancel: "Usuń moje konto"
   enumerations:
     membership:
       state:
@@ -69,3 +81,8 @@ pl:
     voting:
       create: "Głosowanie rozpoczęte"
       update: "Głosowanie zakończone"
+  hints:
+    password:
+      leave_blank: "Pozostaw puste, jeśli nie chcesz zmienić hasła"
+    current_password:
+      required: "Potrzebujemy Twojego obecnego hasła by móc zapisać zmiany"

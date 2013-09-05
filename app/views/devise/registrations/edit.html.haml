@@ -1,15 +1,30 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-vertical' }) do |f|
-  = f.error_notification
-  = display_base_errors resource
-  = f.input :name, autofocus: true
-  = f.input :email, required: true
-  = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
-  = f.input :password_confirmation, required: false
-  = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
-  = f.button :submit, 'Update', class: 'btn-primary'
-%h3 Cancel my account
-%p
-  Unhappy? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}.
-= link_to "Back", :back
+%h3= t('devise.registrations.edit.header')
+
+%div.row
+  %div.col-md-6
+    %div.panel.panel-default
+      %div.panel-heading= t('devise.registrations.edit.details_header')
+      %div.panel-body
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-vertical' }) do |f|
+          = f.error_notification
+          = display_base_errors resource
+          = f.input :name, autofocus: true
+          = f.input :email, required: true
+          = f.input :password, autocomplete: "off", hint: t('hints.password.leave_blank'), required: false
+          = f.input :password_confirmation, required: false
+          = f.input :current_password, hint: t('hints.current_password.required'), required: true
+          = f.button :submit, t('common.update'), class: 'btn-primary'
+  %div.col-md-6
+    %div.panel.panel-danger
+      %div.panel-heading= t('devise.registrations.edit.cancellation_header')
+      %div.panel-body
+        = link_to t('links.account.cancel'),
+        registration_path(resource_name),
+        class: 'btn btn-lg btn-danger',
+        data: { confirm: t('common.confirm') },
+        method: :delete
+
+= link_to t('common.back'), :back, class: 'btn btn-default'
+
+
+
