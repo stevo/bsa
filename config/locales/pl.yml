@@ -13,6 +13,8 @@ pl:
     new: "Dodaj"
     back: "Powrót"
     update: "Zapisz zmiany"
+    logout: "Wyloguj się"
+    login: "Zaloguj się"
   user:
     home:
       dashboard:
@@ -61,6 +63,9 @@ pl:
       conclude: "Rozstrzygnij"
     account:
       cancel: "Usuń moje konto"
+      edit: "Zarządzanie kontem"
+    admin: "Administracja"
+    sign_up: "Dołącz do nas!"
   enumerations:
     membership:
       state:
