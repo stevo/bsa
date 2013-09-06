@@ -66,6 +66,7 @@ pl:
       rights: "Uprawnienia"
       destroy: "Usuń użytkownika"
       contributions: "Składki"
+      force_approve: "Przyjmij"
     voting:
       conclude: "Rozstrzygnij"
     account:
@@ -93,6 +94,8 @@ pl:
     voting:
       create: "Głosowanie rozpoczęte"
       update: "Głosowanie zakończone"
+    membership:
+      accepted: "Członkostwo zostało zaakceptowane"
   hints:
     password:
       leave_blank: "Pozostaw puste, jeśli nie chcesz zmienić hasła"

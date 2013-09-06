@@ -16,5 +16,9 @@ class Membership < ActiveRecord::Base
     event :disapprove do
       transition :being_polled => :disapproved
     end
+
+    event :force_approve do
+      transition any => :approved
+    end
   end
 end

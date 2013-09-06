@@ -2,7 +2,7 @@
 
 %div.row
   %div.col-md-6
-    %div.panel.panel-default
+    %div.panel.panel-info
       %div.panel-heading= t('admin.users.show.summary_header')
       %div.panel-body
         %p
@@ -12,9 +12,11 @@
           %strong= t('simple_form.labels.user.email')+':'
           = user.email
   %div.col-md-6
-    %div.panel.panel-warning
+    %div.panel.panel-primary
       %div.panel-heading= t('admin.users.show.actions_header')
       %div.panel-body
         = link_to t('links.user.rights'), edit_admin_user_rights_path(decorated_user), class: 'btn btn-primary', data: {colorbox: true}
+        - unless user.membership_approved?
+          = link_to t('links.user.force_approve'), edit_admin_user_rights_path(decorated_user), class: 'btn btn-warning'
         - unless decorated_user.object == current_user
           = link_to(t('links.user.destroy'), admin_user_path(decorated_user), data: { confirm: t('common.confirm') }, method: :delete, class: 'btn btn-danger')
