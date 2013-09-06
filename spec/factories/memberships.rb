@@ -9,12 +9,10 @@ FactoryGirl.define do
 
     factory :membership_being_polled do
       state 'being_polled'
-
     end
 
     factory :approved_membership do
       state 'approved'
-
     end
 
     factory :disapproved_membership do

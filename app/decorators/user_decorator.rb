@@ -16,7 +16,7 @@ class UserDecorator < Draper::Decorator
   end
 
   def membership_actions
-    if object.membership_new?
+    if object.membership_new? || object.membership_disapproved?
       h.link_to I18n.t('enumerations.voting.kind.open'),
                 h.admin_user_votings_path(object),
                 method: :post

@@ -20,17 +20,34 @@ describe StartVoting do
 
       it { expect(subject.perform(params).success?).to be_true }
 
-      context "membership is not prepared for voting" do
+      context "membership is disapproved" do
         let(:membership) { create(:disapproved_membership) }
 
-        it { expect(subject.perform(params).success?).to be_false }
+        it { expect(subject.perform(params).success?).to be_true }
 
-        it "no voting for membership is created" do
-          expect { subject.perform(params) }.to_not change { membership.reload.voting }
+        it "creates new voting for membership" do
+          expect { subject.perform(params) }.to change { membership.reload.voting }
+          expect(membership.voting).to be_instance_of Voting
         end
 
-        it "membership state does not change" do
-          expect { subject.perform(params) }.to_not change { membership.reload.state }
+        it "changes membership state to being_polled" do
+          expect { subject.perform(params) }.to change { membership.reload.state }.from('disapproved').to('being_polled')
+        end
+      end
+
+      [:membership_being_polled, :approved_membership].each do |membership_kind|
+        context "membership is not prepared for voting (#{membership_kind.to_s.humanize})" do
+          let(:membership) { create(membership_kind) }
+
+          it { expect(subject.perform(params).success?).to be_false }
+
+          it "no voting for membership is created" do
+            expect { subject.perform(params) }.to_not change { membership.reload.voting }
+          end
+
+          it "membership state does not change" do
+            expect { subject.perform(params) }.to_not change { membership.reload.state }
+          end
         end
       end
     end

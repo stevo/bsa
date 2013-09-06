@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_one :membership
   has_one :voting, through: :membership
 
-  delegate :approved?, :new?, :being_polled?, to: :membership, prefix: true, allow_nil: true
+  delegate :approved?, :new?, :being_polled?, :disapproved?, to: :membership, prefix: true, allow_nil: true
 
   def guest?
     !membership

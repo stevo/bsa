@@ -6,7 +6,7 @@ class Membership < ActiveRecord::Base
 
   state_machine :state, initial: :new do
     event :poll do
-      transition :new => :being_polled
+      transition [:new, :disapproved] => :being_polled
     end
 
     event :approve do
