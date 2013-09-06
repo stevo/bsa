@@ -12,7 +12,7 @@
         %th
     %tbody
       - decorated_collection.each do |decorated_user|
-        %tr
+        %tr{class: decorated_user.row_class }
           %td= link_to decorated_user.name, [:admin, decorated_user]
           %td= decorated_user.email
           %td= decorated_user.membership_state

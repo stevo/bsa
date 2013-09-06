@@ -27,7 +27,19 @@ class UserDecorator < Draper::Decorator
     end
   end
 
+  def row_class
+    if needs_attention?
+      'warning'
+    else
+      ''
+    end
+  end
+
   private
+
+  def needs_attention?
+    object.membership_new?
+  end
 
   def membership_state_full
     if object.guest?
@@ -39,5 +51,4 @@ class UserDecorator < Draper::Decorator
       h.content_tag(:div, I18n.t("activemodel.membership.statuses.#{object.membership_state}.description"), class: 'alert alert-info')
     end
   end
-
 end
