@@ -5,8 +5,14 @@ class UserDecorator < Draper::Decorator
     if version == :full
       membership_state_full
     else
-      I18n.t("enumerations.membership.state.#{object.membership_state}")
+      I18n.t("enumerations.membership.state.#{object.membership_state}").tap do |_state|
+        _state << ' '<< voted_badge if object.membership_being_polled?
+      end.html_safe
     end
+  end
+
+  def voted_badge
+    h.content_tag(:span, object.voting.voted, class: 'badge', data: {toggle: 'tooltip', original_title: I18n.t('tooltips.vote.given')})
   end
 
   def membership_actions

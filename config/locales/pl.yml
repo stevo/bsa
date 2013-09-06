@@ -98,3 +98,6 @@ pl:
       leave_blank: "Pozostaw puste, jeśli nie chcesz zmienić hasła"
     current_password:
       required: "Potrzebujemy Twojego obecnego hasła by móc zapisać zmiany"
+  tooltips:
+    vote:
+      given: "Oddano głosów w sumie"
