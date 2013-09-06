@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130904124216) do
+ActiveRecord::Schema.define(version: 20130906145412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20130904124216) do
 
   create_table "votings", force: true do |t|
     t.integer  "membership_id"
-    t.boolean  "closed"
+    t.boolean  "closed",        default: false
     t.date     "finishes_at"
     t.datetime "created_at"
     t.datetime "updated_at"

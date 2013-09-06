@@ -3,7 +3,6 @@
 FactoryGirl.define do
   factory :voting do
     membership_id 1
-    closed false
     finishes_at "2013-09-03"
     active true
 

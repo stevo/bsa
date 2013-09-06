@@ -3,6 +3,12 @@ require 'spec_helper'
 describe Voting do
   subject { create(:voting) }
 
+  context 'initialization' do
+    subject { Voting.new }
+
+    it { expect(subject.closed).to be_false }
+  end
+
   context "scopes" do
     subject { described_class }
     let(:voter) { create(:user, membership: create(:approved_membership)) }
