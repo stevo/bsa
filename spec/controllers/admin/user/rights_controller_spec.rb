@@ -6,7 +6,7 @@ describe Admin::User::RightsController do
 
   describe "PUT #update" do
     let!(:role) { create(:role, name: 'some_role') }
-    let(:call_request) { put :update, user_id: some_user.id, user: {role_ids: [role.id]} }
+    let(:call_request) { put :update, user_id: some_user.id, user: {role_ids: role.id} }
 
     it do
       expect { call_request }.to change { some_user.reload.has_role?(:some_role) }.from(false).to(true)
