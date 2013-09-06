@@ -7,6 +7,11 @@ pl:
       contributions:
         index:
           header: "Składki"
+    users:
+      show:
+        header: "Szczegóły użytkownika %{name}"
+        summary_header: "Podstawowe informacje"
+        actions_header: "Operacje"
   common:
     destroy: "Usuń"
     confirm: "Jesteś pewien?"
