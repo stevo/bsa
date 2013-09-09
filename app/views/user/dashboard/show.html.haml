@@ -1,13 +1,13 @@
 %h3= t('user.home.dashboard.show.header', name: current_user.name)
 
-%div.row
-  %div.col-md-12
-    %div.panel.panel-default
-      %div.panel-heading= t('user.home.dashboard.show.account_header')
-      %div.panel-body= 'TODO'
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading= t('user.home.dashboard.show.account_header')
+      .panel-body= 'TODO'
 
-%div.row
-  %div.col-md-6
+.row
+  .col-md-6
     = render 'membership'
-  %div.col-md-6
+  .col-md-6
     = render 'voting'

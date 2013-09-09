@@ -1,10 +1,10 @@
 %h3= t('devise.registrations.edit.header')
 
-%div.row
-  %div.col-md-6
-    %div.panel.panel-default
-      %div.panel-heading= t('devise.registrations.edit.details_header')
-      %div.panel-body
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading= t('devise.registrations.edit.details_header')
+      .panel-body
         = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-vertical' }) do |f|
           = f.error_notification
           = display_base_errors resource
@@ -14,10 +14,10 @@
           = f.input :password_confirmation, required: false
           = f.input :current_password, hint: t('hints.current_password.required'), required: true
           = f.button :submit, t('common.update'), class: 'btn-primary'
-  %div.col-md-6
-    %div.panel.panel-danger
-      %div.panel-heading= t('devise.registrations.edit.cancellation_header')
-      %div.panel-body
+  .col-md-6
+    .panel.panel-danger
+      .panel-heading= t('devise.registrations.edit.cancellation_header')
+      .panel-body
         = link_to t('links.account.cancel'),
         registration_path(resource_name),
         class: 'btn btn-lg btn-danger',

@@ -1,6 +1,6 @@
-%div.panel.panel-default
-  %div.panel-heading= t('user.home.dashboard.show.voting_header')
-  %div.panel-body
+.panel.panel-default
+  .panel-heading= t('user.home.dashboard.show.voting_header')
+  .panel-body
     - if voting
       %h2= voting.candidate_name
       = decorated_voting.vote_for_link
