@@ -1,4 +1,11 @@
-.panel-signin {
-  max-width: 330px;
-  margin: 0 auto;
+form.new_user {
+  .has-error {
+    .control-label {
+      color: #333333;
+    }
+    .form-control {
+      border: 1px solid #cccccc;
+    }
+  }
+
 }

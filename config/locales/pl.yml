@@ -50,6 +50,11 @@ pl:
         header: "Zarządzanie kontem"
         details_header: "Twoje dane"
         cancellation_header: "Usunięcie konta"
+      new:
+        header: "Nie masz jeszcze konta? Zarejestruj się!"
+    failure:
+      user:
+        unauthenticated: "Odmówiono dostępu. Prosimy o zalogowanie się na konto"
   simple_form:
     labels:
       user:
