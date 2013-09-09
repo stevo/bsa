@@ -11,7 +11,7 @@ describe Voting do
 
   context "scopes" do
     subject { described_class }
-    let(:voter) { create(:user, membership: create(:approved_membership)) }
+    let(:voter) { create(:voter) }
 
     describe ".available_to_answer_for" do
       context "active voting for voter exists" do
@@ -52,7 +52,7 @@ describe Voting do
     end
 
     describe ".not_voted_by" do
-      let(:voter) { create(:user) }
+      let(:voter) { create(:voter) }
 
       context "voter already voted for voting" do
         let!(:voting) { create(:voting, votes: [create(:vote, voter: voter)]) }

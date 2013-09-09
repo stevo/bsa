@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User::VotesController do
-  include_context 'logged in as user'
+  include_context 'logged in as voter'
 
   describe "POST 'create'" do
     context "voting exists" do

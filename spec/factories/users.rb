@@ -23,5 +23,16 @@ FactoryGirl.define do
       membership { create(:membership_being_polled) }
     end
 
+    trait :approved_membership do
+      membership { create(:approved_membership) }
+    end
+
+    factory :voter do
+      membership { create(:approved_membership) }
+    end
+
+    factory :candidate do
+      membership { create(:membership_being_polled, voting: create(:voting)) }
+    end
   end
 end

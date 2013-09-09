@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :vote do
     sequence :voting_id
-    sequence :voter_id
+    voter { create(:voter) }
     state 'for'
   end
 end
