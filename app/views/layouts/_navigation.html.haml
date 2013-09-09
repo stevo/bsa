@@ -5,15 +5,9 @@
     - if user_signed_in?
       %li
         = link_to t('common.logout'), destroy_user_session_path, method: 'delete'
-    - else
-      %li
-        = link_to t('common.login'), new_user_session_path
     - if user_signed_in?
       %li
         = link_to t('links.account.edit'), edit_user_registration_path
       - if current_user.has_role? :admin
         %li
           = link_to t('links.admin'), admin_users_path
-    - else
-      %li
-        = link_to t('links.sign_up'), new_user_registration_path
