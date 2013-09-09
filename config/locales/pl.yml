@@ -57,6 +57,7 @@ pl:
     failure:
       user:
         unauthenticated: "Odmówiono dostępu. Prosimy o zalogowanie się na konto"
+        invalid: "Podano błędne dane. Proszę spróbować jeszcze raz"
   simple_form:
     error_notification:
       default_message: "Prosimy, zapoznaj się z błędami poniżej..."
