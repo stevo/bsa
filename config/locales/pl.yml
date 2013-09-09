@@ -52,10 +52,14 @@ pl:
         cancellation_header: "Usunięcie konta"
       new:
         header: "Nie masz jeszcze konta? Zarejestruj się!"
+      user:
+        signed_up_but_unconfirmed: "Zarejestrowano pomyślnie. Prosimy o kliknięcie w link aktywacyjny przesłany mailem na państwa konto"
     failure:
       user:
         unauthenticated: "Odmówiono dostępu. Prosimy o zalogowanie się na konto"
   simple_form:
+    error_notification:
+      default_message: "Prosimy, zapoznaj się z błędami poniżej..."
     labels:
       user:
         email: "Email"
@@ -115,3 +119,13 @@ pl:
       given: "Oddano głosów w sumie"
   descriptions:
     intro: "Jeśli należysz do społeczności ASG Bielsko, niniejszy portal umożliwi Ci rejestrację do imprez organizowanych           przez stowarzyszenie BSA. Jeśli natomiast jesteś, bądź chcesz zostać członkiem BSA, możesz tu wnioskować o przyjęcie           a następnie zarządzać i monitorować swoje konto członkowskie."
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Musisz podać poprawny adres email"
+              taken: "Konto o tym adresie email już istniej"
+            password:
+              blank: "Hasło nie może pozostać puste"
