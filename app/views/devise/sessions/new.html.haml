@@ -1,18 +1,25 @@
-%div.row
-  %div.col-md-6
-    %div.panel.panel-primary.panel-signin
-      %div.panel-heading= t('devise.sessions.new.header')
-      %div.panel-body
+.row
+  .col-md-12
+    .jumbotron
+      .container
+        %h1= 'BSA'
+        %p= t('descriptions.intro')
+
+.row
+  .col-md-6
+    .panel.panel-primary.panel-signin
+      .panel-heading= t('devise.sessions.new.header')
+      .panel-body
         = simple_form_for(resource, as: :user, url: user_session_path) do |f|
           = f.input :email, autofocus: true, error: false, error_html: { id: 'password_error'}
           = f.input :password, error: false
           = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-          = f.button :submit, "Sign in", class: 'btn btn-lg btn-primary btn-block'
+          = f.button :submit, t('links.sign_in'), class: 'btn btn-lg btn-primary btn-block'
         = render "devise/shared/links"
-  %div.col-md-6
-    %div.panel.panel-default.panel-signin
-      %div.panel-heading= t('devise.registrations.new.header')
-      %div.panel-body
+  .col-md-6
+    .panel.panel-default.panel-signin
+      .panel-heading= t('devise.registrations.new.header')
+      .panel-body
         = simple_form_for(resource, as: :user, url: user_registration_path, html: {class: 'form-vertical'}) do |f|
           = f.error_notification
           = display_base_errors resource
@@ -20,4 +27,4 @@
           = f.input :email, required: true
           = f.input :password, required: true
           = f.input :password_confirmation, required: true
-          = f.button :submit, 'Sign up', class: 'btn-primary'
+          = f.button :submit, t('links.sign_up'), class: 'btn btn-lg btn-success btn-block'

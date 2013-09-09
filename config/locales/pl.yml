@@ -66,6 +66,7 @@ pl:
         password: 'Hasło'
         password_confirmation: 'Potwierdzenie hasła'
         current_password: 'Obecne hasło'
+        remember_me: 'Zapamiętaj mnie'
   links:
     user:
       rights: "Uprawnienia"
@@ -79,6 +80,9 @@ pl:
       edit: "Zarządzanie kontem"
     admin: "Administracja"
     sign_up: "Dołącz do nas!"
+    sign_in: "Zaloguj się"
+    forgot_password: "Zapomniałeś hasła?"
+    activation_instructions: "Nie otrzymałeś maila aktywacyjnego?"
   enumerations:
     membership:
       state:
@@ -109,3 +113,5 @@ pl:
   tooltips:
     vote:
       given: "Oddano głosów w sumie"
+  descriptions:
+    intro: "Jeśli należysz do społeczności ASG Bielsko, niniejszy portal umożliwi Ci rejestrację do imprez organizowanych           przez stowarzyszenie BSA. Jeśli natomiast jesteś, bądź chcesz zostać członkiem BSA, możesz tu wnioskować o przyjęcie           a następnie zarządzać i monitorować swoje konto członkowskie."
