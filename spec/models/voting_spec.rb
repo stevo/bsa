@@ -44,7 +44,7 @@ describe Voting do
             context "voter has no approved membership" do
               let!(:unapproved_voter) { create(:user, membership: create(:membership)) }
 
-              xit { expect(subject.available_to_answer_for(unapproved_voter)).to_not include voting_for_other_candidate }
+              it { expect(subject.available_to_answer_for(unapproved_voter)).to_not include voting_for_other_candidate }
             end
           end
         end
