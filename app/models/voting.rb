@@ -8,7 +8,7 @@ class Voting < ActiveRecord::Base
   delegate :name, to: :candidate, prefix: true
 
   scope :available_to_answer_for, ->(voter) do
-    _scope = voter.membership_approved? ? scoped : none
+    _scope = voter.membership_approved? ? all : none
     _scope = _scope.active.not_for(voter).not_voted_by(voter)
     voter.admin? ? _scope : _scope.where(closed: false)
   end
@@ -45,3 +45,4 @@ class Voting < ActiveRecord::Base
     votes.where(state: 'hold').count
   end
 end
+
