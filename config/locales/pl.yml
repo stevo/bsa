@@ -60,6 +60,8 @@ pl:
       user:
         unauthenticated: "Odmówiono dostępu. Prosimy o zalogowanie się na konto"
         invalid: "Podano błędne dane. Proszę spróbować jeszcze raz"
+        not_found_in_database: "Nie znaleziono użytkownika"
+        unconfirmed: "Adres email nie został potwierdzony"
   simple_form:
     error_notification:
       default_message: "Prosimy, zapoznaj się z błędami poniżej..."
@@ -101,6 +103,7 @@ pl:
     voting:
       kind:
         open: "Głosowanie otwarte"
+        closed: "Głosowanie zamknięte"
     vote:
       state:
         for: "Za"
