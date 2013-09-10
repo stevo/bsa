@@ -17,9 +17,12 @@ class UserDecorator < Draper::Decorator
 
   def membership_actions
     if object.membership_new? || object.membership_disapproved?
-      h.link_to I18n.t('enumerations.voting.kind.open'),
+      h.link_to(I18n.t('enumerations.voting.kind.open'),
                 h.admin_user_votings_path(object),
-                method: :post
+                method: :post) << ' / ' <<
+        h.link_to(I18n.t('enumerations.voting.kind.closed'),
+                  h.admin_user_votings_path(object, voting: {closed: true}),
+                  method: :post)
     elsif object.membership_being_polled?
       h.link_to I18n.t('links.voting.conclude'),
                 h.admin_user_voting_path(object, object.voting, {voting: {transition: 'conclude'}}),
@@ -51,6 +54,6 @@ class UserDecorator < Draper::Decorator
       h.content_tag(:div, I18n.t("activemodel.membership.statuses.#{object.membership_state}.description"), class: 'alert alert-info')
     else
       h.content_tag(:div, I18n.t("activemodel.membership.statuses.#{object.membership_state}.description"), class: 'alert alert-success')
-      end
+    end
   end
 end
