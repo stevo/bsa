@@ -132,3 +132,5 @@ pl:
               taken: "Konto o tym adresie email już istniej"
             password:
               blank: "Hasło nie może pozostać puste"
+            current_password:
+              blank: "Proszę podać obecne hasło"
