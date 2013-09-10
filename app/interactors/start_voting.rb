@@ -1,21 +1,19 @@
-class StartVoting
-  include Interactor
-
-  def perform
+class StartVoting < Interactor
+  perform do
     if membership.poll
-      membership.create_voting
+      membership.create_voting(permitted_params[:voting])
     else
-      context.fail!
+      false
     end
   end
 
-  private
+  helpers do
+    def membership
+      get_user.membership
+    end
 
-  def membership
-    get_user.membership
-  end
-
-  def get_user
-    User.find(context['user_id'])
+    def get_user
+      User.find(permitted_params[:user_id])
+    end
   end
 end

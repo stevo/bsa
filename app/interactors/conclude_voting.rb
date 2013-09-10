@@ -1,7 +1,5 @@
-class ConcludeVoting
-  include Interactor
-
-  def perform
+class ConcludeVoting < Interactor
+  perform do
     if voting.passed?
       membership.approve!
     else
@@ -10,17 +8,17 @@ class ConcludeVoting
     voting.deactivate!
   end
 
-  private
+  helpers do
+    def voting
+      membership.voting
+    end
 
-  def voting
-    membership.voting
-  end
+    def membership
+      get_user.membership
+    end
 
-  def membership
-    get_user.membership
-  end
-
-  def get_user
-    User.find(context['user_id'])
+    def get_user
+      User.find(permitted_params['user_id'])
+    end
   end
 end

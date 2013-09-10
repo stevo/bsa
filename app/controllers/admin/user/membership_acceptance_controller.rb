@@ -1,6 +1,6 @@
 class Admin::User::MembershipAcceptanceController < Admin::AdminController
   def create
-    SucceedVoting.perform(permitted_params)
+    SucceedVoting.new(self).perform
     redirect_to admin_users_path, notice: t('flashes.membership.accepted')
   end
 

@@ -6,9 +6,11 @@ describe Admin::User::VotingsController do
   context 'POST #create' do
     context 'candidate exists' do
       let!(:candidate) { create(:user, :new_membership) }
+      let!(:interactor) { double }
 
       it 'starts voting' do
-        StartVoting.should_receive(:perform).with('user_id' => candidate.id.to_s)
+        StartVoting.should_receive(:new).with(controller).and_return(interactor)
+        interactor.should_receive(:perform)
         post :create, user_id: candidate.id
       end
 
@@ -26,9 +28,11 @@ describe Admin::User::VotingsController do
       let(:membership) { create(:membership_being_polled, voting: voting) }
       let!(:candidate) { create(:user, membership: membership) }
       let(:call_request) { put :update, user_id: candidate.id, id: voting.id }
+      let!(:interactor) { double }
 
       it 'concludes voting' do
-        ConcludeVoting.should_receive(:perform).with('user_id' => candidate.id.to_s)
+        ConcludeVoting.should_receive(:new).with(controller).and_return(interactor)
+        interactor.should_receive(:perform)
         call_request
       end
 
