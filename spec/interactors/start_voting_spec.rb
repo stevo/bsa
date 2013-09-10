@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe StartVoting do
-  let(:controller){ double }
+  let(:controller) { double }
   subject { described_class.new(controller) }
 
   describe ".perform" do
@@ -14,6 +14,17 @@ describe StartVoting do
       it "creates new voting for membership" do
         expect { subject.perform }.to change { membership.reload.voting }
         expect(membership.voting).to be_instance_of Voting
+      end
+
+      it "creates open voting" do
+        expect(subject.perform.closed).to be_false
+      end
+
+      context "voting is to be closed" do
+        let(:params) { {user_id: user.id, voting: {closed: true}}.with_indifferent_access }
+        it "creates closed voting" do
+          expect(subject.perform.closed).to be_true
+        end
       end
 
       it "changes membership state to being_polled" do
