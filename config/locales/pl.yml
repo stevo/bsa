@@ -37,6 +37,8 @@ pl:
       statuses:
         new:
           description: "Twoje zgłoszenie oczekuje na głosowanie"
+        approved:
+          description: "Jesteś aktywnym członkiem BSA"
         being_polled:
           description: "Twoje zgłoszenie jest w trakcie głosowania"
   devise:

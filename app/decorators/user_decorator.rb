@@ -49,6 +49,8 @@ class UserDecorator < Draper::Decorator
         end
     elsif !object.membership_approved?
       h.content_tag(:div, I18n.t("activemodel.membership.statuses.#{object.membership_state}.description"), class: 'alert alert-info')
-    end
+    else
+      h.content_tag(:div, I18n.t("activemodel.membership.statuses.#{object.membership_state}.description"), class: 'alert alert-success')
+      end
   end
 end
