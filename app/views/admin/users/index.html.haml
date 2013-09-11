@@ -19,4 +19,4 @@
           %td= decorated_user.membership_actions
           %td= decorated_user.created_at.to_date
           %td= decorated_user.roles.first.name.titleize unless decorated_user.roles.first.nil?
-          %td= link_to t('links.user.contributions'), admin_user_contributions_path(decorated_user), class: 'btn btn-mini'
+          %td= link_to t('links.user.add_contribution'), new_admin_user_contribution_path(decorated_user), class: 'btn btn-xs btn-default', data: { colorbox: true }
