@@ -20,3 +20,24 @@
           = link_to t('links.user.force_approve'), admin_user_membership_acceptance_path(decorated_user), method: :post, class: 'btn btn-warning'
         - unless decorated_user.object == current_user
           = link_to(t('links.user.destroy'), admin_user_path(decorated_user), data: { confirm: t('common.confirm') }, method: :delete, class: 'btn btn-danger')
+
+.row
+  .col-md-6
+    .panel.panel-info
+      .panel-heading= t('admin.user.contributions.index.header')
+      .panel-body
+        %ul.list-group
+          - contributions.each do |contribution|
+            %li.list-group-item
+              = contribution.amount
+              %span.label.label-default= contribution.created_at
+              = link_to t('common.destroy'), admin_user_contribution_path(user, contribution),
+                                      data: { confirm: t('common.confirm') },
+                                      method: :delete,
+                                      class: 'btn btn-xs btn-danger pull-right'
+
+        = link_to t('common.new'), new_admin_user_contribution_path(user), class: 'btn btn-primary', data: { colorbox: true }
+
+.row
+  .col-md-12
+    = link_to t('common.back'), admin_users_path, class: 'btn btn-default'

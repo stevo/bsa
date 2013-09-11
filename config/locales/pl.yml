@@ -82,6 +82,7 @@ pl:
       destroy: "Usuń użytkownika"
       contributions: "Składki"
       force_approve: "Przyjmij"
+      add_contribution: "Zarejestruj składkę"
     voting:
       conclude: "Rozstrzygnij"
     account:
