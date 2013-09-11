@@ -10,17 +10,24 @@ class Interactor
   end
 
   def perform
-    if perform_block.present?
-      @result = on_controller(:perform) if on_controller(:condition)
-    else
-      if respond_to?(:steps) and on_controller(:condition)
-        steps_queue = steps.dup
-        begin
-          step_object = steps_queue.shift.new(controller)
-          @result = step_object.perform
-        end while steps_queue.present? and !step_object.break_chain?
-      end
+    if on_controller(:condition)
+      @result = if perform_block
+                  on_controller(:perform)
+                else
+                  process_steps
+                end
     end
+    @result
+  end
+
+  def process_steps
+    steps_queue = steps.dup
+    begin
+      step_object = steps_queue.shift.new(controller)
+      if step_object.on_controller(:condition)
+        @result = step_object.on_controller(:perform)
+      end
+    end while steps_queue.present? and !step_object.break_chain?
     @result
   end
 
