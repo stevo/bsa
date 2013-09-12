@@ -282,6 +282,9 @@ pl:
         invalid: "Podano błędne dane. Proszę spróbować jeszcze raz"
         not_found_in_database: "Nie znaleziono użytkownika"
         unconfirmed: "Adres email nie został potwierdzony"
+    confirmations:
+      user:
+        confirmed: "Konto potwierdzone pomyślnie"
   simple_form:
     error_notification:
       default_message: "Prosimy, zapoznaj się z błędami poniżej..."
