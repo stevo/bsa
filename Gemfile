@@ -45,6 +45,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'timecop'
 end
 
 group :test do

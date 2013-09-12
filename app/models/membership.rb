@@ -5,6 +5,10 @@ class Membership < ActiveRecord::Base
   scope :active, -> { where(state: 'approved') }
 
   state_machine :state, initial: :new do
+    after_transition any => :approved do |membership, _|
+      membership.touch(:approved_at)
+    end
+
     event :poll do
       transition [:new, :disapproved] => :being_polled
     end

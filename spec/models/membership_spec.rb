@@ -1,5 +1,18 @@
 require 'spec_helper'
 
+shared_examples 'updates approved_at' do
+  let(:membership_being_polled) { create(:membership_being_polled) }
+
+  it { expect { call }.to change { membership_being_polled.reload.approved_at }.from(nil) }
+
+  it "sets approved_at to current time" do
+    Timecop.freeze(Date.today) do
+      call
+      expect(membership_being_polled.reload.approved_at).to eq Date.today
+    end
+  end
+end
+
 describe Membership do
   context 'scopes' do
     describe '.active' do
@@ -19,5 +32,15 @@ describe Membership do
         end
       end
     end
+  end
+
+  describe "#approve!" do
+    let(:call){ membership_being_polled.approve! }
+    include_examples "updates approved_at"
+  end
+
+  describe "#force_approve!" do
+    let(:call){ membership_being_polled.force_approve! }
+    include_examples "updates approved_at"
   end
 end

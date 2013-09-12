@@ -3,7 +3,6 @@
 FactoryGirl.define do
   factory :membership, aliases: [:new_membership] do
     user_id 1
-    approved_at '2013-09-03'
     monthly_contribution '9.99'
     state 'new'
 
