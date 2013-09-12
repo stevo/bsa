@@ -11,6 +11,16 @@ describe Contribution do
       subject { build(:contribution, amount: nil) }
       it { expect(subject).to_not be_valid }
     end
+
+    context "with no membership" do
+      subject { build(:contribution, user: create(:user)) }
+      it { expect(subject).to_not be_valid }
+    end
+
+    context "with not approved membership" do
+      subject { build(:contribution, user: create(:user, :new_membership)) }
+      it { expect(subject).to_not be_valid }
+    end
   end
 
   describe "#create" do

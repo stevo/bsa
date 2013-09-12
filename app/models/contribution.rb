@@ -2,6 +2,14 @@ class Contribution < ActiveRecord::Base
   belongs_to :user
   belongs_to :membership
 
-  before_create -> { self.membership_id = user.membership.id }
   validates :amount, numericality: {greater_than: 0}, presence: true
+  validate :membership_approved
+
+  before_validation -> { self.membership_id = user.membership.try(:id) }, on: :create
+
+  private
+
+  def membership_approved
+    errors.add(:base, :membership_not_approved) unless membership.try(:approved?)
+  end
 end
