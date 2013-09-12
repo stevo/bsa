@@ -12,4 +12,13 @@ describe Contribution do
       it { expect(subject).to_not be_valid }
     end
   end
+
+  describe "#create" do
+    context "user with membership exists" do
+      let(:approved_membership) { create(:approved_membership) }
+      let(:user) { create(:user, membership: approved_membership) }
+
+      it { expect(create(:contribution, user: user).membership_id).to eq approved_membership.id }
+    end
+  end
 end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin::User::ContributionsController do
   include_context 'logged in as admin'
-  include_context 'some user exists'
+  include_context 'some user with approved membership exists'
 
   context 'contribution for user given exists' do
     let!(:contribution) { create(:contribution, user: some_user) }
