@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::AdminController
   expose(:decorated_collection) { User.all.decorate }
   expose(:user, model: User, attributes: :permitted_params)
-  expose(:contributions){ user.contributions }
+  expose(:contributions){ user.contributions.decorate }
   expose(:decorated_user){ user.decorate }
 
   def update
