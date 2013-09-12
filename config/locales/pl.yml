@@ -289,6 +289,7 @@ pl:
         membership_name: "Status członkostwa"
         created_at: "Data rejestracji"
         role: "Rola"
+        created_at: "Zarejestrowany"
         password: 'Hasło'
         password_confirmation: 'Potwierdzenie hasła'
         current_password: 'Obecne hasło'
