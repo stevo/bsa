@@ -3,5 +3,6 @@ shared_context "some user exists" do
 end
 
 shared_context "some user with approved membership exists" do
-  let!(:some_user) { create(:user, :approved_membership) }
+  let(:approved_membership) { create(:approved_membership) }
+  let!(:some_user) { create(:user, membership: approved_membership) }
 end

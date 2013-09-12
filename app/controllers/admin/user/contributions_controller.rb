@@ -4,9 +4,8 @@ class Admin::User::ContributionsController < Admin::AdminController
   actions :new, :create, :destroy
 
   def create
-    super do |format|
-      format.html { redirect_to :back }
-    end
+    CreateContribution.new(self).perform
+    redirect_to :back
   end
 
   def destroy

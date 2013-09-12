@@ -5,8 +5,6 @@ class Contribution < ActiveRecord::Base
   validates :amount, numericality: {greater_than: 0}, presence: true
   validate :membership_approved
 
-  before_validation -> { self.membership_id = user.membership.try(:id) }, on: :create
-
   private
 
   def membership_approved

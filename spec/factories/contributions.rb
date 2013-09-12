@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :contribution do
     amount "9.99"
-    user { create(:user, :approved_membership) }
+    membership { create(:approved_membership) }
   end
 end

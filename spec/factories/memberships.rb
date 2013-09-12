@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :membership, aliases: [:new_membership] do
-    user_id 1
     monthly_contribution '9.99'
     state 'new'
 
@@ -12,6 +11,7 @@ FactoryGirl.define do
 
     factory :approved_membership do
       state 'approved'
+      approved_at { Date.today }
     end
 
     factory :disapproved_membership do

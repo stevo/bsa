@@ -1,6 +1,9 @@
 class Membership < ActiveRecord::Base
+  MONTHLY_CONTRIBUTION_AMOUNT = 5
+
   belongs_to :user
   has_one :voting
+  has_many :contributions
 
   scope :active, -> { where(state: 'approved') }
 
@@ -24,5 +27,9 @@ class Membership < ActiveRecord::Base
     event :force_approve do
       transition any => :approved
     end
+  end
+
+  def daily_contribution_amount
+    MONTHLY_CONTRIBUTION_AMOUNT.to_f / 31
   end
 end
