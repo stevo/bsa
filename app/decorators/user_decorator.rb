@@ -1,6 +1,8 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
+  delegate :content_tag, to: :h
+
   def membership_state(version=:short)
     if version == :full
       membership_state_full
@@ -8,6 +10,16 @@ class UserDecorator < Draper::Decorator
       I18n.t("enumerations.membership.state.#{object.membership_state}").tap do |_state|
         _state << ' '<< voted_badge if object.membership_being_polled?
       end.html_safe
+    end
+  end
+
+  def contribution_state
+    if object.membership_approved?
+      if (contribution = object.latest_contribution)
+        contribution.decorate.expires_at_label
+      else
+        content_tag(:span, I18n.t('enumerations.membership.contribution_state.missing'), class: "label label-default label-danger")
+      end
     end
   end
 

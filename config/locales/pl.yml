@@ -237,6 +237,9 @@ pl:
     update: "Zapisz zmiany"
     logout: "Wyloguj się"
     login: "Zaloguj się"
+    ago: "%{distance} temu"
+    expires: "Wygasa za %{distance}"
+    expired: "Wygasła"
   user:
     home:
       dashboard:
@@ -294,6 +297,8 @@ pl:
         password_confirmation: 'Potwierdzenie hasła'
         current_password: 'Obecne hasło'
         remember_me: 'Zapamiętaj mnie'
+      contribution:
+        expires_at: "Składka wygasa"
   links:
     user:
       rights: "Uprawnienia"
@@ -319,6 +324,8 @@ pl:
         being_polled: "Głosowanie"
         approved: "Przyjęty"
         disapproved: "Odrzucony"
+      contribution_state:
+        missing: "Brak wpłaty!"
     voting:
       kind:
         open: "Głosowanie otwarte"
@@ -356,3 +363,5 @@ pl:
               blank: "Hasło nie może pozostać puste"
             current_password:
               blank: "Proszę podać obecne hasło"
+  resources:
+    contribution: "Składka"

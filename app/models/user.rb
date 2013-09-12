@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     !membership
   end
 
+  def latest_contribution
+    contributions.order(:expires_at).last
+  end
+
   def admin?
     has_role?(:admin)
   end

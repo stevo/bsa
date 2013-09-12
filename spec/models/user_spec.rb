@@ -3,6 +3,8 @@ require 'spec_helper'
 describe User do
   subject { build(:user) }
 
+  it { expect(subject).to respond_to(:latest_contribution)}
+
   it { expect(subject).to respond_to(:password, :password_confirmation, :encrypted_password) }
 
   it "creates a new instance given a valid attribute" do
@@ -166,6 +168,32 @@ describe User do
         let(:user) { create(:user, membership: create(:membership, state: state)) }
 
         it { expect(user.membership_state).to eq state }
+      end
+    end
+  end
+
+  describe '#latest_contribution' do
+    subject { create(:user) }
+
+    context 'no contributions' do
+      it { expect(subject.latest_contribution).to be_nil }
+    end
+
+    context 'one contribution' do
+      let!(:contribution) { create(:contribution, expires_at: 2.days.ago, user: subject)}
+
+      it { expect(subject.latest_contribution).to eq contribution }
+
+      context 'with older contribution' do
+        let!(:older_contribution) { create(:contribution, expires_at: 4.days.ago, user: subject)}
+
+        it { expect(subject.latest_contribution).to eq contribution }
+
+        context 'with newer contribution' do
+          let!(:newer_contribution) { create(:contribution, expires_at: (Date.today + 2.days), user: subject)}
+
+          it { expect(subject.latest_contribution).to eq newer_contribution }
+        end
       end
     end
   end
