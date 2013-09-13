@@ -8,6 +8,7 @@ Bsa::Application.routes.draw do
       resource :membership_acceptance, only: [:create], controller: 'user/membership_acceptance'
       resources :votings, only: [:create, :update], controller: 'user/votings'
       resources :contributions, only: [:new, :create, :destroy], controller: 'user/contributions'
+      resources :memberships, only: [:update], controller: 'user/memberships'
       resource :rights, controller: 'user/rights'
     end
   end

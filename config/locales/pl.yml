@@ -229,6 +229,7 @@ pl:
         header: "Szczegóły użytkownika %{name}"
         summary_header: "Podstawowe informacje"
         actions_header: "Operacje"
+        membership_header: "Członkostwo"
   common:
     destroy: "Usuń"
     confirm: "Jesteś pewien?"
@@ -344,6 +345,7 @@ pl:
       update: "Głosowanie zakończone"
     membership:
       accepted: "Członkostwo zostało zaakceptowane"
+      updated: "Członkostwo zostało uaktualnione"
   hints:
     password:
       leave_blank: "Pozostaw puste, jeśli nie chcesz zmienić hasła"
