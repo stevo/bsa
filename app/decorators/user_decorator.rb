@@ -1,4 +1,4 @@
-class UserDecorator < Draper::Decorator
+class UserDecorator < ApplicationDecorator
   delegate_all
 
   delegate :content_tag, to: :h
@@ -18,7 +18,7 @@ class UserDecorator < Draper::Decorator
       if (contribution = object.latest_contribution)
         contribution.decorate.expires_at_widget(widget)
       else
-        content_tag(:span, I18n.t('enumerations.membership.contribution_state.missing'), class: "#{widget} #{widget}-default #{widget}-danger")
+        content_tag(widget_dom(widget), I18n.t('enumerations.membership.contribution_state.missing'), class: "#{widget} #{widget}-default #{widget}-danger")
       end
     end
   end

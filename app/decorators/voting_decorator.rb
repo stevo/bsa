@@ -1,4 +1,4 @@
-class VotingDecorator < Draper::Decorator
+class VotingDecorator < ApplicationDecorator
   delegate_all
 
   def vote_for_link

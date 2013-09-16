@@ -1,4 +1,4 @@
-class ContributionDecorator < Draper::Decorator
+class ContributionDecorator < ApplicationDecorator
   INFINITY = 1.0 / 0
 
   delegate_all
@@ -18,7 +18,7 @@ class ContributionDecorator < Draper::Decorator
   end
 
   def expires_at_widget(widget='label')
-    content_tag((widget == 'label' ? :span : :div), expiry_message, class: "#{widget}  #{widget}-#{expires_at_warn_level}")
+    content_tag(widget_dom(widget), expiry_message, class: "#{widget}  #{widget}-#{expires_at_warn_level}")
   end
 
   private
