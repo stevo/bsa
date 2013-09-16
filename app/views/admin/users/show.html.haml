@@ -28,7 +28,7 @@
           - contributions.each do |contribution|
             %li.list-group-item
               = contribution.amount
-              = contribution.expires_at_label
+              = contribution.expires_at_widget
               = link_to t('common.destroy'), admin_user_contribution_path(user, contribution),
                                       data: { confirm: t('common.confirm') },
                                       method: :delete,

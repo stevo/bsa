@@ -248,7 +248,7 @@ pl:
           header: "Witaj %{name}!"
           account_header: "Twoje konto"
           association_header: "Stowarzyszenie BSA"
-          voting_header: "Głosowanie"
+          voting_header: "Głosowania"
           no_voting_message: "Brak głosowań w toku"
   activemodel:
     user:

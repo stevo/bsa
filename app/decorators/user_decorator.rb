@@ -13,12 +13,12 @@ class UserDecorator < Draper::Decorator
     end
   end
 
-  def contribution_state
+  def contribution_state(widget='label')
     if object.membership_approved?
       if (contribution = object.latest_contribution)
-        contribution.decorate.expires_at_label
+        contribution.decorate.expires_at_widget(widget)
       else
-        content_tag(:span, I18n.t('enumerations.membership.contribution_state.missing'), class: "label label-default label-danger")
+        content_tag(:span, I18n.t('enumerations.membership.contribution_state.missing'), class: "#{widget} #{widget}-default #{widget}-danger")
       end
     end
   end

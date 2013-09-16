@@ -17,8 +17,8 @@ class ContributionDecorator < Draper::Decorator
     h.distance_of_time_in_words(Time.now, object.expires_at)
   end
 
-  def expires_at_label
-    content_tag(:span, expiry_message, class: "label label-default label-#{expires_at_warn_level}")
+  def expires_at_widget(widget='label')
+    content_tag((widget == 'label' ? :span : :div), expiry_message, class: "#{widget}  #{widget}-#{expires_at_warn_level}")
   end
 
   private

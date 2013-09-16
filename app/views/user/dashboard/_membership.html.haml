@@ -1,4 +1,8 @@
 .panel.panel-default
   .panel-heading= t('user.home.dashboard.show.association_header')
   .panel-body
+    %h4= t('simple_form.labels.user.membership_name')
     = decorated_current_user.membership_state(:full)
+    - if current_user.membership_approved?
+      %h4= t('resources.contribution')
+      = decorated_current_user.contribution_state('alert')
