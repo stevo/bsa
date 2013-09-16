@@ -19,7 +19,7 @@
         .panel-heading= t('admin.users.show.membership_header')
         .panel-body
           = simple_form_for membership, url: admin_user_membership_path(user, membership), html: {method: :patch} do |f|
-            = f.input :approved_at, as: :datepicker
+            = f.input :approved_at, as: :string
             = f.submit t('common.update'), class: 'btn btn-default pull-right'
     .panel.panel-info
       .panel-heading= t('admin.user.contributions.index.header')

@@ -289,7 +289,12 @@ pl:
   simple_form:
     error_notification:
       default_message: "Prosimy, zapoznaj się z błędami poniżej..."
+    hints:
+      membership:
+        approved_at: "w formacie RRRR-MM-DD"
     labels:
+      membership:
+        approved_at: "Data przyjęcia"
       user:
         email: "Email"
         name: "Nazwa użytkownika"
