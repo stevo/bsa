@@ -23,6 +23,7 @@ gem 'inherited_resources'
 gem 'colorbox-rails'
 gem 'state_machine'
 gem 'squeel'
+gem 'carrierwave'
 
 group :development do
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
