@@ -24,7 +24,8 @@ gem 'colorbox-rails'
 gem 'state_machine'
 gem 'squeel'
 gem 'carrierwave'
-gem "fog", "~> 1.3.1"
+gem 'rmagick'
+gem 'fog', '~> 1.3.1'
 
 group :development do
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
