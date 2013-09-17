@@ -9,15 +9,21 @@
         = csrf_meta_tags
         = yield(:head)
   %body{class: "#{controller_name} #{action_name}"}
-    .navbar.navbar-fixed-top.navbar-inverse
-      .container
-        = render 'layouts/navigation'
+    #wrap
+      .navbar.navbar-fixed-top.navbar-inverse
+        .container
+          = render 'layouts/navigation'
 
-    .container
-      .row
-        .col-md-12
-          = render 'layouts/messages'
-          = yield
-      %footer
+      .container
+        .row
+          .col-md-12
+            = render 'layouts/messages'
+            = yield
+    #footer
+      .container
+        %p.text-muted.credit
+          = raw("Implementacja by #{link_to "Stevo", 'https://coderwall.com/stevo', target: '_blank'} @ #{link_to 'Selleo', 'http://selleo.com', target: '_blank'}")
+
+
       / ! end of .container
     / ! end of #main
