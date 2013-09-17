@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :contributions
   has_one :membership
   has_one :voting, through: :membership
