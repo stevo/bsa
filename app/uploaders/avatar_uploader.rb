@@ -10,6 +10,12 @@ class AvatarUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
+  process :resize_to_fit => [500, 500]
+
+  version :thumb do
+    process :resize_to_fit => [100,100]
+  end
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
