@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     !membership
   end
 
+  def thumb_url
+    avatar.thumb.url
+  end
+
   def latest_contribution
     contributions.order(:expires_at).last
   end
