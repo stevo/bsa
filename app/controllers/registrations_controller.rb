@@ -24,4 +24,14 @@ class RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :avatar, :password, :password_confirmation, :current_password) }
   end
+
+  protected
+
+  def update_resource(resource, params)
+    if params["password"].present?
+      resource.update_with_password(params)
+    else
+      resource.update(params.except(:current_password, :password, :password_confirmation))
+    end
+  end
 end
