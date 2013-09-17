@@ -5,7 +5,7 @@
     .panel.panel-info
       .panel-heading= t('admin.users.show.summary_header')
       .panel-body
-        - if user.avatar
+        - if user.avatar.url
           .col-md-3
             = decorated_user.avatar
         %p
