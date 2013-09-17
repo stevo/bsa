@@ -3,6 +3,14 @@ class UserDecorator < ApplicationDecorator
 
   delegate :content_tag, to: :h
 
+  def avatar(options={})
+    if object.thumb_url
+      h.with_options(options) do |cfg|
+        cfg.image_tag(object.thumb_url, class: 'img-circle')
+      end
+    end
+  end
+
   def membership_state(version=:short)
     if version == :full
       membership_state_full

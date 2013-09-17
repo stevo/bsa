@@ -5,6 +5,9 @@
     .panel.panel-info
       .panel-heading= t('admin.users.show.summary_header')
       .panel-body
+        - if user.avatar
+          .col-md-3
+            = decorated_user.avatar
         %p
           %strong= t('simple_form.labels.user.name')+':'
           = user.name

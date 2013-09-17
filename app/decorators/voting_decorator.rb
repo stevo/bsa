@@ -3,9 +3,7 @@ class VotingDecorator < ApplicationDecorator
   delegate :candidate, to: :object
 
   def candidate_avatar
-    if candidate.thumb_url
-      h.image_tag(candidate.thumb_url, class: 'img-circle')
-    end
+    candidate.decorated.avatar
   end
 
   def vote_for_link
