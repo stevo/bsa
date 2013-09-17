@@ -4,6 +4,7 @@
     .panel-body
       - if voting
         %h2= voting.candidate_name
+        = decorated_voting.candidate_avatar
         = decorated_voting.vote_for_link
         = decorated_voting.vote_against_link
         = decorated_voting.hold_vote_link

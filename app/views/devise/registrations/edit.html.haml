@@ -11,8 +11,7 @@
           = f.input :name, autofocus: true
           = f.input :email, required: true
           - if resource.thumb_url
-            .thumbnail
-              = image_tag resource.thumb_url
+            = image_tag resource.thumb_url, class: 'img-thumbnail'
           = f.input :avatar, as: :file
           = f.input :password, autocomplete: "off", hint: t('hints.password.leave_blank'), required: false
           = f.input :password_confirmation, required: false
