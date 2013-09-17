@@ -4,7 +4,7 @@ class VotingDecorator < ApplicationDecorator
 
   def candidate_avatar
     if candidate.thumb_url
-      h.image_tag(candidate.thumb_url, class: 'img-thumbnail')
+      h.image_tag(candidate.thumb_url, class: 'img-circle')
     end
   end
 
