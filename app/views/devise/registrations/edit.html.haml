@@ -6,23 +6,29 @@
       .panel-heading= t('devise.registrations.edit.details_header')
       .panel-body
         = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-vertical' }) do |f|
-          = f.error_notification
           = display_base_errors resource
           = f.input :name, autofocus: true
           = f.input :email, required: true
           = resource.decorate.avatar
           = f.input :avatar, as: :file
+          = f.button :submit, t('common.update'), class: 'btn-primary'
+  .col-md-6
+    .panel.panel-default
+      .panel-heading= t('devise.registrations.edit.password_change_header')
+      .panel-body
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-vertical' }) do |f|
+          = display_base_errors resource
           = f.input :password, autocomplete: "off", hint: t('hints.password.leave_blank'), required: false
           = f.input :password_confirmation, required: false
           = f.input :current_password, hint: t('hints.current_password.required'), required: true
           = f.button :submit, t('common.update'), class: 'btn-primary'
-  .col-md-6
+
     .panel.panel-danger
       .panel-heading= t('devise.registrations.edit.cancellation_header')
       .panel-body
         = link_to t('links.account.cancel'),
         registration_path(resource_name),
-        class: 'btn btn-lg btn-danger',
+        class: 'btn btn-danger',
         data: { confirm: t('common.confirm') },
         method: :delete
 

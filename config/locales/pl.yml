@@ -273,6 +273,7 @@ pl:
         header: "Zarządzanie kontem"
         details_header: "Twoje dane"
         cancellation_header: "Usunięcie konta"
+        password_change_header: "Zmiana hasła"
       new:
         header: "Nie masz jeszcze konta? Zarejestruj się!"
       user:
