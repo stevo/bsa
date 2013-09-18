@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::AdminController
-  expose(:decorated_collection) { User.all.decorate }
+  expose(:decorated_collection) { User.all.order(:name).decorate }
   expose(:user, model: User, attributes: :permitted_params)
   expose(:membership) { user.membership }
   expose(:contributions) { user.contributions.decorate }
