@@ -330,6 +330,7 @@ pl:
     sign_in: "Zaloguj się"
     forgot_password: "Zapomniałeś hasła?"
     activation_instructions: "Nie otrzymałeś maila aktywacyjnego?"
+    cms_admin: "Zarządzanie CMS"
   enumerations:
     membership:
       state:

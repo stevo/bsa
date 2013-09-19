@@ -11,3 +11,7 @@
       - if current_user.has_role? :admin
         %li
           = link_to t('links.admin'), admin_users_path
+        %li
+          = link_to t('links.cms_admin'), cms_admin_path, data: { no_turbolink: true }
+
+
