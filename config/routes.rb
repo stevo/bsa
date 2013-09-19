@@ -1,5 +1,8 @@
 Bsa::Application.routes.draw do
-  root :to => "user/dashboard#show"
+  
+  ComfortableMexicanSofa::Routing.admin(path: '/cms-admin')
+
+  root to: "user/dashboard#show"
 
   devise_for :users, controllers: {registrations: 'registrations'}
 
@@ -20,4 +23,7 @@ Bsa::Application.routes.draw do
       resources :votes, only: [:create]
     end
   end
+
+  # Make sure this routeset is defined last
+  ComfortableMexicanSofa::Routing.content(path: '/', sitemap: false)
 end
