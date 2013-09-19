@@ -3,7 +3,7 @@ class VotingDecorator < ApplicationDecorator
   delegate :candidate, to: :object
 
   def candidate_avatar
-    candidate.decorated.avatar
+    candidate.decorate.avatar
   end
 
   def vote_for_link
