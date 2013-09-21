@@ -27,6 +27,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog', '~> 1.3.1'
 gem 'comfortable_mexican_sofa', '~> 1.9.0'
+gem 'ckeditor'
 
 group :development do
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

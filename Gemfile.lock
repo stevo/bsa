@@ -64,6 +64,9 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    ckeditor (4.0.6)
+      mime-types
+      orm_adapter
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -336,6 +339,7 @@ DEPENDENCIES
   binding_of_caller
   cancan
   carrierwave
+  ckeditor
   coffee-rails (~> 4.0.0)
   colorbox-rails
   comfortable_mexican_sofa (~> 1.9.0)
