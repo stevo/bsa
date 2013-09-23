@@ -2,7 +2,6 @@ class ContributionDecorator < ApplicationDecorator
   INFINITY = 1.0 / 0
 
   delegate_all
-  delegate :content_tag, to: :h
 
   def amount
     h.number_to_currency(object.amount, locale: :pl)
@@ -11,7 +10,6 @@ class ContributionDecorator < ApplicationDecorator
   def created_at
     h.time_ago_in_words(object.created_at)
   end
-
 
   def expires_at
     h.distance_of_time_in_words(Time.now, object.expires_at)

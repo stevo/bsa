@@ -1,8 +1,6 @@
 class UserDecorator < ApplicationDecorator
   delegate_all
 
-  delegate :content_tag, to: :h
-
   def avatar(options={})
     if object.thumb_url
       h.with_options(options) do |cfg|

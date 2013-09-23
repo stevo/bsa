@@ -8,18 +8,10 @@
         - if user.avatar.url
           .col-md-3
             = decorated_user.avatar
-        %p
-          %strong= t('simple_form.labels.user.name')+':'
-          = user.name
-        %p
-          %strong= t('simple_form.labels.user.email')+':'
-          = user.email
-        %p
-          %strong= t('simple_form.labels.user.created_at')+':'
-          = user.created_at
-        %p
-          %strong= t('simple_form.labels.user.confirmed_at')+':'
-          = user.confirmed_at
+        = decorated_user.labeled(:name)
+        = decorated_user.labeled(:email)
+        = decorated_user.labeled(:created_at)
+        = decorated_user.labeled(:confirmed_at)
     - if membership
       .panel.panel-info
         .panel-heading= t('admin.users.show.membership_header')
@@ -50,7 +42,6 @@
           = link_to t('links.user.force_approve'), admin_user_membership_acceptance_path(decorated_user), method: :post, class: 'btn btn-default btn-block'
         - unless decorated_user.object == current_user
           = link_to(t('links.user.destroy'), admin_user_path(decorated_user), data: { confirm: t('common.confirm') }, method: :delete, class: 'btn btn-danger btn-block')
-
 
 .row
   .col-md-12
