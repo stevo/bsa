@@ -17,6 +17,9 @@
         %p
           %strong= t('simple_form.labels.user.created_at')+':'
           = user.created_at
+        %p
+          %strong= t('simple_form.labels.user.confirmed_at')+':'
+          = user.confirmed_at
     - if membership
       .panel.panel-info
         .panel-heading= t('admin.users.show.membership_header')

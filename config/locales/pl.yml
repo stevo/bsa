@@ -311,6 +311,7 @@ pl:
         password_confirmation: 'Potwierdzenie hasła'
         current_password: 'Obecne hasło'
         remember_me: 'Zapamiętaj mnie'
+        confirmed_at: "Data potwierdzenia adresu email"
       contribution:
         expires_at: "Składka wygasa"
   links:
