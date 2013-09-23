@@ -1,10 +1,7 @@
 .navbar-header
   = link_to 'BSA', root_path, class: 'navbar-brand'
-.collapse.navbar-collapse
+.collapse.navbar-collapse.pull-right
   %ul.nav.navbar-nav
-    - if user_signed_in?
-      %li
-        = link_to t('common.logout'), destroy_user_session_path, method: 'delete'
     - if user_signed_in?
       %li
         = link_to t('links.account.edit'), edit_user_registration_path
@@ -13,5 +10,6 @@
           = link_to t('links.admin'), admin_users_path
         %li
           = link_to t('links.cms_admin'), cms_admin_path, data: { no_turbolink: true }
-
-
+    - if user_signed_in?
+      %li
+        = link_to t('common.logout'), destroy_user_session_path, method: 'delete'

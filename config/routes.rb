@@ -1,10 +1,22 @@
 Bsa::Application.routes.draw do
-  
+
   ComfortableMexicanSofa::Routing.admin(path: '/cms-admin')
 
   root to: "user/dashboard#show"
 
   devise_for :users, controllers: {registrations: 'registrations'}
+
+  namespace :guest do
+    resource :dashboard, only: [:show], controller: 'dashboard'
+  end
+
+  namespace :user do
+    resource :dashboard, only: [:show], controller: 'dashboard'
+    resource :membership, only: [:create], controller: 'membership'
+    resources :votings, only: [] do
+      resources :votes, only: [:create]
+    end
+  end
 
   namespace :admin do
     resources :users do
@@ -13,14 +25,6 @@ Bsa::Application.routes.draw do
       resources :contributions, only: [:new, :create, :destroy], controller: 'user/contributions'
       resources :memberships, only: [:update], controller: 'user/memberships'
       resource :rights, controller: 'user/rights'
-    end
-  end
-
-  namespace :user do
-    resource :dashboard, only: [:show], controller: 'dashboard'
-    resource :membership, only: [:create], controller: 'membership'
-    resources :votings, only: [] do
-      resources :votes, only: [:create]
     end
   end
 

@@ -1,0 +1,11 @@
+.panel.panel-default.panel-signin
+  .panel-heading= t('devise.registrations.new.header')
+  .panel-body
+    = simple_form_for(resource, as: :user, url: user_registration_path, html: {class: 'form-vertical'}) do |f|
+      = f.error_notification
+      = display_base_errors resource
+      = f.input :name
+      = f.input :email, required: true
+      = f.input :password, required: true
+      = f.input :password_confirmation, required: true
+      = f.button :submit, t('links.sign_up'), class: 'btn btn-lg btn-success btn-block'

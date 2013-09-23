@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+      %title= content_for?(:title) ? yield(:title) : "Bsa"
+      %meta{content: content_for?(:description) ? yield(:description) : "Bsa", name: "description"}
+        = stylesheet_link_tag "application", :media => "all"
+        = javascript_include_tag "application"
+        = csrf_meta_tags
+        = yield(:head)
+  %body{class: "#{controller_name} #{action_name}"}
+    #wrap
+      .navbar.navbar-fixed-top.navbar-inverse
+        .container
+          = render 'layouts/navigation'
+
+      .container
+        .row
+          .col-md-12
+            = render 'layouts/messages'
+        .row
+          - if content_for?(:content)
+            = yield :content
+          - else
+            = yield
+
+    #footer
+      .container
+        %p.text-muted.credit
+          = raw("Implementacja by #{link_to "Stevo", 'https://coderwall.com/stevo', target: '_blank'} @ #{link_to 'Selleo', 'http://selleo.com', target: '_blank'}")
+
+      / ! end of .container
+    / ! end of #main

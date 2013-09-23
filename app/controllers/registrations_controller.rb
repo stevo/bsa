@@ -1,4 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
+  layout 'master'
+
+  expose(:decorated_current_user){ current_user.decorate }
   before_filter :update_sanitized_params, if: :devise_controller?
 
   def create
@@ -12,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
         expire_session_data_after_sign_in!
-        respond_with resource, location: new_user_session_path
+        respond_with resource, location: guest_dashboard_path
       end
     else
       clean_up_passwords resource

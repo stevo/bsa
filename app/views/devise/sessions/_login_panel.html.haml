@@ -1,0 +1,9 @@
+.panel.panel-primary.panel-signin
+  .panel-heading= t('devise.sessions.new.header')
+  .panel-body
+    = simple_form_for(resource, as: :user, url: user_session_path) do |f|
+      = f.input :email, autofocus: true, error: false, error_html: { id: 'password_error'}
+      = f.input :password, error: false
+      = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+      = f.button :submit, t('links.sign_in'), class: 'btn btn-lg btn-primary btn-block'
+    = render "devise/shared/links"

@@ -1,29 +1,12 @@
-!!!
-%html
-  %head
-    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
-      %title= content_for?(:title) ? yield(:title) : "Bsa"
-      %meta{content: content_for?(:description) ? yield(:description) : "Bsa", name: "description"}
-        = stylesheet_link_tag "application", :media => "all"
-        = javascript_include_tag "application"
-        = csrf_meta_tags
-        = yield(:head)
-  %body{class: "#{controller_name} #{action_name}"}
-    #wrap
-      .navbar.navbar-fixed-top.navbar-inverse
-        .container
-          = render 'layouts/navigation'
+- content_for :content do
+  .col-md-8
+    = yield
+  .col-md-4
+    - if signed_in?
+      %h3= t('user.home.dashboard.show.header', name: current_user.name)
+      = render 'user/dashboard/membership'
+    - else
+      = render 'devise/sessions/login_panel'
+      = render 'devise/sessions/registration_panel'
 
-      .container
-        .row
-          .col-md-12
-            = render 'layouts/messages'
-            = yield
-    #footer
-      .container
-        %p.text-muted.credit
-          = raw("Implementacja by #{link_to "Stevo", 'https://coderwall.com/stevo', target: '_blank'} @ #{link_to 'Selleo', 'http://selleo.com', target: '_blank'}")
-
-
-      / ! end of .container
-    / ! end of #main
+= render template: 'layouts/master'

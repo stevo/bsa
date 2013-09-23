@@ -1,32 +1,5 @@
 .row
-  .col-md-12
-    .jumbotron
-      .container
-        %h1= 'BSApp'
-        .col-md-11
-          %p= t('descriptions.intro')
-          = link_to t('links.conditions'), '/warunki-przyjecia-i-przywileje', target: '_blank'
-
-.row
   .col-md-6
-    .panel.panel-primary.panel-signin
-      .panel-heading= t('devise.sessions.new.header')
-      .panel-body
-        = simple_form_for(resource, as: :user, url: user_session_path) do |f|
-          = f.input :email, autofocus: true, error: false, error_html: { id: 'password_error'}
-          = f.input :password, error: false
-          = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-          = f.button :submit, t('links.sign_in'), class: 'btn btn-lg btn-primary btn-block'
-        = render "devise/shared/links"
+    = render 'devise/sessions/login_panel'
   .col-md-6
-    .panel.panel-default.panel-signin
-      .panel-heading= t('devise.registrations.new.header')
-      .panel-body
-        = simple_form_for(resource, as: :user, url: user_registration_path, html: {class: 'form-vertical'}) do |f|
-          = f.error_notification
-          = display_base_errors resource
-          = f.input :name
-          = f.input :email, required: true
-          = f.input :password, required: true
-          = f.input :password_confirmation, required: true
-          = f.button :submit, t('links.sign_up'), class: 'btn btn-lg btn-success btn-block'
+    = render 'devise/sessions/registration_panel'

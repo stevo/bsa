@@ -1,5 +1,6 @@
 class Admin::AdminController < AuthenticatedController
   before_action :authorize_admin!
+  layout 'admin'
 
   private
 

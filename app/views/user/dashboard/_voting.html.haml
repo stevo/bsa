@@ -1,12 +1,11 @@
 - if current_user.membership_approved?
-  .panel.panel-default
-    .panel-heading= t('user.home.dashboard.show.voting_header')
-    .panel-body
-      - if voting
-        %h2= voting.candidate_name
-        = decorated_voting.candidate_avatar
-        = decorated_voting.vote_for_link
-        = decorated_voting.vote_against_link
-        = decorated_voting.hold_vote_link
-      - else
-        = t('user.home.dashboard.show.no_voting_message')
+  - if voting
+    .panel.panel-default
+      .panel-heading= t('user.home.dashboard.show.voting_header')
+      .panel-body
+        - if voting
+          %h2= voting.candidate_name
+          = decorated_voting.candidate_avatar
+          = decorated_voting.vote_for_link
+          = decorated_voting.vote_against_link
+          = decorated_voting.hold_vote_link
