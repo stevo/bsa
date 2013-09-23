@@ -2,14 +2,14 @@
 
 ComfortableMexicanSofa.configure do |config|
   # Title of the admin area
-  #   config.cms_title = 'ComfortableMexicanSofa CMS Engine'
-  
+  config.cms_title  = 'Zarządzanie zawartością aplikacji BSApp'
+
   # Controller that is inherited from CmsAdmin::BaseController
   #   config.base_controller = 'ApplicationController'
 
   # Module responsible for authentication. You can replace it with your own.
   # It simply needs to have #authenticate method. See http_auth.rb for reference.
-  #   config.admin_auth = 'ComfortableMexicanSofa::HttpAuth'
+  config.admin_auth  = 'CmsDeviseAuth'
 
   # Module responsible for public authentication. Similar to the above. You also
   # will have access to @cms_site, @cms_layout, @cms_page so you can use them in
@@ -59,7 +59,7 @@ ComfortableMexicanSofa.configure do |config|
   # Admin interface will respect the locale of the site being managed. However you can
   # force it to English by setting this to `:en`
   #   config.admin_locale = nil
-  
+
   # If you want to keep your CMS tables in a location other than the default database
   # add a database_config. For example, setting it to 'cms' will look for a cms_#{Rails.env}
   # definition in your database.yml file
@@ -87,14 +87,12 @@ ComfortableMexicanSofa.configure do |config|
   # e.g. config.hostname_aliases = {'host.com' => 'host.inv', 'host_a.com' => ['host.lvh.me', 'host.dev']}
   # Default is nil (not used)
   #   config.hostname_aliases = nil
-
-  config.admin_auth = 'CmsDeviseAuth'
 end
 
 # Default credentials for ComfortableMexicanSofa::HttpAuth
 # YOU REALLY WANT TO CHANGE THIS BEFORE PUTTING YOUR SITE LIVE
-ComfortableMexicanSofa::HttpAuth.username = 'username'
-ComfortableMexicanSofa::HttpAuth.password = 'password'
+# ComfortableMexicanSofa::HttpAuth.username = 'username'
+# ComfortableMexicanSofa::HttpAuth.password = 'password'
 
 # If you need to inject some html in cms admin views you can define what partial
 # should be rendered into the following areas:
