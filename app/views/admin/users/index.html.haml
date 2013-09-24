@@ -23,4 +23,4 @@
           %td= decorated_user.roles.first.name.titleize unless decorated_user.roles.first.nil?
           %td
             - if decorated_user.membership_approved?
-              = link_to t('links.user.add_contribution'), new_admin_user_contribution_path(decorated_user), class: 'btn btn-xs btn-default', data: { colorbox: true }
+              = link_to t('links.user.add_contribution'), new_admin_user_contribution_path(decorated_user), class: 'btn btn-xs btn-default', data: { modal: true, remote: true }

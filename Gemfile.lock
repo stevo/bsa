@@ -82,9 +82,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    colorbox-rails (0.1.0)
-      jquery-rails
-      rails (>= 3.1.1)
     columnize (0.3.6)
     comfortable_mexican_sofa (1.9.2)
       active_link_to (>= 1.0.0)
@@ -352,7 +349,6 @@ DEPENDENCIES
   ckeditor
   ckeditor_rails
   coffee-rails (~> 4.0.0)
-  colorbox-rails
   comfortable_mexican_sofa (~> 1.9.0)
   compass-rails (~> 2.0.alpha.0)
   database_cleaner (= 1.0.1)

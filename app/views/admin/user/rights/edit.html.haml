@@ -12,5 +12,5 @@
     checked: user.role_ids.first
 
 - content_for :buttons do
-  = link_to t('common.cancel'), '#', data: {cb_close: true}
+  = link_to t('common.cancel'), '#', data: {dismiss: 'modal'}
   = link_to t('links.rights.save'), '#', data: {submit: dom_id(user, :edit)}, class: 'btn btn-primary'

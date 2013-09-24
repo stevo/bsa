@@ -15,4 +15,15 @@
 #= require twitter/bootstrap
 #= require turbolinks
 #= require_tree .
-#= require colorbox-rails
+
+$(document).on 'page:change ready', ->
+
+  $('a[data-modal]').on 'ajax:success', (evt,data, status, xhr) ->
+    $('#master-modal').remove()
+    $('body').append(data)
+    $('#master-modal').on 'shown.bs.modal', ->
+      $('a[data-submit]').on('click', ->
+        link = $(this)
+        $("form##{link.data('submit')}").submit()
+      )
+    $('#master-modal').modal({})

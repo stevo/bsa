@@ -6,5 +6,5 @@
     = f.input :amount
 
 - content_for :buttons do
-  = link_to t('common.cancel'), '#', data: {cb_close: true}
+  = link_to t('common.cancel'), '#', data: {dismiss: 'modal'}
   = link_to t('links.contributions.create'), '#', data: {submit: 'new_contribution'}, class: 'btn btn-primary'
