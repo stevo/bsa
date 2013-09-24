@@ -12,6 +12,10 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def decorated_current_user
+    current_user.try(:decorate)
+  end
+
   def resource_name
     :user
   end

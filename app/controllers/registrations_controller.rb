@@ -1,7 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   layout 'master'
 
-  expose(:decorated_current_user){ current_user.decorate }
   before_filter :update_sanitized_params, if: :devise_controller?
 
   def create
