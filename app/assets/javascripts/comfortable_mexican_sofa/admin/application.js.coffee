@@ -3,5 +3,6 @@
 #= require ckeditor/init
 #= require ckeditor-jquery
 
-window.CMS.wysiwyg = ->
-  $('textarea[data-rich-text]').ckeditor();
+if window.CMS
+  window.CMS.wysiwyg = ->
+    $('textarea[data-rich-text]').ckeditor();
