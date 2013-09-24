@@ -1,3 +1,10 @@
-= simple_form_for [:admin, parent, resource] do |f|
-  = f.input :amount
-  = f.submit
+- content_for :header do
+  = t('headers.contribution.new')
+
+- content_for :content do
+  = simple_form_for [:admin, parent, resource] do |f|
+    = f.input :amount
+
+- content_for :buttons do
+  = link_to t('common.cancel'), '#', data: {cb_close: true}
+  = link_to t('links.contributions.create'), '#', data: {submit: 'new_contribution'}, class: 'btn btn-primary'

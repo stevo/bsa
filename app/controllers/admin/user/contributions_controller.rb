@@ -3,6 +3,8 @@ class Admin::User::ContributionsController < Admin::AdminController
   belongs_to :user
   actions :new, :create, :destroy
 
+  layout 'popup'
+
   def create
     CreateContribution.new(self).perform
     redirect_to :back

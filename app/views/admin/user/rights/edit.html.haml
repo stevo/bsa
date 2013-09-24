@@ -1,9 +1,16 @@
-= simple_form_for user, url: admin_user_rights_path(user), html: {method: :put} do |f|
-  = f.input :role_ids,
-  collection: Role.all,
-  as: :radio_buttons,
-  label_method: ->(t) {t.name.titleize},
-  label: false,
-  item_wrapper_class: 'inline',
-  checked: user.role_ids.first
-  = f.submit
+- content_for :header do
+  = t('headers.rights.edit')
+
+- content_for :content do
+  = simple_form_for user, url: admin_user_rights_path(user), html: {method: :put} do |f|
+    = f.input :role_ids,
+    collection: Role.all,
+    as: :radio_buttons,
+    label_method: ->(t) {t.name.titleize},
+    label: false,
+    item_wrapper_class: 'inline',
+    checked: user.role_ids.first
+
+- content_for :buttons do
+  = link_to t('common.cancel'), '#', data: {cb_close: true}
+  = link_to t('links.rights.save'), '#', data: {submit: dom_id(user, :edit)}, class: 'btn btn-primary'

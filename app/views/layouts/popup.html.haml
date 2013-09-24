@@ -1,0 +1,10 @@
+.modal-header
+  = content_for(:header)
+
+.modal-body
+  = content_for(:content)
+
+.modal-footer
+  = content_for(:buttons)
+
+= javascript_include_tag 'helpers'

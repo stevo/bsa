@@ -241,6 +241,7 @@ pl:
     ago: "%{distance} temu"
     expires: "Wygasa za %{distance}"
     expired: "Wygasła"
+    cancel: "Anuluj"
   user:
     home:
       dashboard:
@@ -313,6 +314,7 @@ pl:
         remember_me: 'Zapamiętaj mnie'
         confirmed_at: "Data potwierdzenia adresu email"
       contribution:
+        amount: "Kwota"
         expires_at: "Składka wygasa"
   links:
     user:
@@ -333,6 +335,8 @@ pl:
     activation_instructions: "Nie otrzymałeś maila aktywacyjnego?"
     cms_admin: "Zarządzanie CMS"
     conditions: "Warunki przyjęcia do stowarzyszenia"
+    rights:
+      save: "Zapisz zmiany"
   enumerations:
     membership:
       state:
@@ -383,3 +387,8 @@ pl:
               blank: "Proszę podać obecne hasło"
   resources:
     contribution: "Składka"
+  headers:
+    contribution:
+      new: "Nowa składka"
+    rights:
+      edit: 'Edycja uprawnień'
