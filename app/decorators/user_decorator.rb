@@ -56,6 +56,18 @@ class UserDecorator < ApplicationDecorator
     end
   end
 
+  def voted_for
+    content_tag(:span, t('enumerations.vote.state.for')) << ' ' << content_tag(:span, voting.voted_for, class: 'label label-success')
+  end
+
+  def voted_against
+    content_tag(:span, t('enumerations.vote.state.against')) << ' ' << content_tag(:span, voting.voted_against, class: 'label label-danger')
+  end
+
+  def holded_vote
+    content_tag(:span, t('enumerations.vote.state.hold')) << ' ' << content_tag(:span, voting.holded_vote, class: 'label label-default')
+  end
+
   private
 
   def needs_attention?

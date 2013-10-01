@@ -230,6 +230,7 @@ pl:
         summary_header: "Podstawowe informacje"
         actions_header: "Operacje"
         membership_header: "Członkostwo"
+        voting_header: "Głosowanie"
   common:
     destroy: "Usuń"
     confirm: "Jesteś pewien?"
