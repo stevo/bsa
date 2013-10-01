@@ -25,6 +25,10 @@ class Voting < ActiveRecord::Base
     update_column(:active, false)
   end
 
+  def inactive?
+    !active?
+  end
+
   def passed?
     (voted_for.to_f / voted.to_f) > ACCEPTANCE_THRESHOLD
   end

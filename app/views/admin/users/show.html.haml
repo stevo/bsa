@@ -17,7 +17,7 @@
         .panel-heading= t('admin.users.show.membership_header')
 
         .panel-body
-          - unless user.voting.try(:active?)
+          - if voting.try(:inactive?)
             %h4= t('admin.users.show.voting_header')
             = decorated_user.voted_for
             = decorated_user.voted_against
