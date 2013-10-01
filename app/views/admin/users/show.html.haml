@@ -17,12 +17,13 @@
         .panel-heading= t('admin.users.show.membership_header')
 
         .panel-body
-          %h4= t('admin.users.show.voting_header')
-          = decorated_user.voted_for
-          = decorated_user.voted_against
-          = decorated_user.holded_vote
-          %br
-          %br
+          - unless user.voting.active?
+            %h4= t('admin.users.show.voting_header')
+            = decorated_user.voted_for
+            = decorated_user.voted_against
+            = decorated_user.holded_vote
+            %br
+            %br
 
           = simple_form_for membership, url: admin_user_membership_path(user, membership), html: {method: :patch} do |f|
             = f.input :approved_at, as: :string
