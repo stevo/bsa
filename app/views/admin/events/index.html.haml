@@ -1,0 +1,20 @@
+%h3= t('events.index.header')
+.span11
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= t('simple_form.labels.events.name')
+        %th= t('simple_form.labels.events.description')
+        %th
+
+    %tbody
+      - collection.each do |event|
+        %tr
+          %td= event.name
+          %td= event.description
+          %td
+            = link_to t('common.edit'), edit_admin_event_path(event), class: 'btn btn-xs btn-default'
+            = link_to t('common.destroy'), admin_event_path(event),method: :delete, class: 'btn btn-xs btn-danger', confirm: 'Jesteś pewien?'
+
+= link_to t('links.event.create'), new_admin_event_path, class: 'btn btn-primary'
+

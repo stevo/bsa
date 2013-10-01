@@ -19,6 +19,7 @@ Bsa::Application.routes.draw do
   end
 
   namespace :admin do
+    resources :events
     resources :users do
       resource :membership_acceptance, only: [:create], controller: 'user/membership_acceptance'
       resources :votings, only: [:create, :update], controller: 'user/votings'

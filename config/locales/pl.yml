@@ -219,6 +219,9 @@ pl:
   users:
     index:
       header: Użytkownicy
+  events:
+    index:
+      header: Imprezy
   admin:
     user:
       contributions:
@@ -242,6 +245,7 @@ pl:
     expires: "Wygasa za %{distance}"
     expired: "Wygasła"
     cancel: "Anuluj"
+    edit: "Edytuj"
   user:
     home:
       dashboard:
@@ -316,7 +320,13 @@ pl:
       contribution:
         amount: "Kwota"
         expires_at: "Składka wygasa"
+      events:
+        name: "Nazwa"
+        description: "Opis"
   links:
+    event:
+      create: "Dodaj imprezę"
+      save: "Zapisz zmiany"
     user:
       rights: "Uprawnienia"
       destroy: "Usuń użytkownika"

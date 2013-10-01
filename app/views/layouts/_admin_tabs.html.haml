@@ -1,3 +1,6 @@
 %ul.nav.nav-tabs
-  %li.active= 'Użytkownicy'
-  %li= 'Imprezy'
+  %li{class: "#{'active' if controller.controller_name == 'users'}"}
+    = link_to t('links.users'), admin_users_path
+  %li{class: "#{'active' if controller.controller_name == 'events'}"}
+    = link_to t('links.events'), admin_events_path
+

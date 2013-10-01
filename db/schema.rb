@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130919193718) do
+ActiveRecord::Schema.define(version: 20130930092044) do
 
   create_table "cms_blocks", force: true do |t|
     t.integer  "page_id",                     null: false
@@ -137,6 +137,13 @@ ActiveRecord::Schema.define(version: 20130919193718) do
     t.datetime "updated_at"
     t.date     "expires_at"
     t.integer  "membership_id"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "memberships", force: true do |t|
