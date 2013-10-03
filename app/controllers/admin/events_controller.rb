@@ -1,7 +1,10 @@
 class Admin::EventsController <  Admin::AdminController
   layout 'admin'
   inherit_resources
-  defaults :resource_class => Event, :collection_name => 'events', :instance_name => 'event'
+  defaults resource_class: Event, collection_name: 'events', instance_name: 'event'
+
+  expose(:decorated_event){ resource.decorate }
+  expose(:decorated_events){ collection.decorate }
 
   def create
     create! { admin_events_path }
@@ -14,6 +17,6 @@ class Admin::EventsController <  Admin::AdminController
   private
 
   def permitted_params
-    params.permit(events: [:name,:description])
+    params.permit(event: [:name, :description, :transition])
   end
 end
