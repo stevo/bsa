@@ -27,6 +27,7 @@ gem 'fog', '~> 1.3.1'
 gem 'comfortable_mexican_sofa', '~> 1.9.0'
 gem 'ckeditor'
 gem 'ckeditor_rails'
+gem 'gon', '~> 4.1.1'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'compass-rails',  '~> 2.0.alpha.0'

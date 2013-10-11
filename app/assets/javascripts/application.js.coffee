@@ -12,6 +12,7 @@
 #
 #= require jquery
 #= require jquery_ujs
+#= require bsa
 #= require twitter/bootstrap
 #= require turbolinks
 #= require_tree .
@@ -27,3 +28,11 @@ $(document).on 'page:change ready', ->
         $("form##{link.data('submit')}").submit()
       )
     $('#master-modal').modal({})
+
+  $ ->
+    controller = gon.controller_path.replace(/\//g, "_")
+    action = gon.action_name
+    activeController = Bsa[controller]
+    if activeController isnt `undefined`
+      activeController.init()  if $.isFunction(activeController.init)
+      activeController[action]()  if $.isFunction(activeController[action])
