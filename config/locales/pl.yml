@@ -323,6 +323,7 @@ pl:
       events:
         name: "Nazwa"
         description: "Opis"
+        starts_at: "Czas rozpoczęcia"
   links:
     event:
       create: "Dodaj imprezę"
@@ -348,6 +349,11 @@ pl:
     rights:
       save: "Zapisz zmiany"
   enumerations:
+    event:
+      transitions:
+        publish: "Publikuj"
+        cancel: "Odwołaj"
+        finish: "Zakończ"
     membership:
       state:
         guest: "Gość"
