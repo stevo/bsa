@@ -5,6 +5,8 @@ class Event < ActiveRecord::Base
 
   after_save :process_transition, if: :transition
 
+  scope :published, ->{ where(state: 'published') }
+
   state_machine :state, initial: :new do
 
     event :publish do
@@ -23,7 +25,6 @@ class Event < ActiveRecord::Base
   private
 
   def process_transition
-    binding.pry
     _transition = transition.to_sym
     self.transition = nil
     if state_events.include?(_transition)

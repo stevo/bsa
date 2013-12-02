@@ -1,0 +1,12 @@
+%h3= t('events.index.header')
+.span11
+  %ul
+  - decorated_events.each do |event|
+    %li= event.name
+    %br
+    =event.description
+
+
+
+
+
