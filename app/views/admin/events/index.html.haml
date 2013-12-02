@@ -5,6 +5,7 @@
       %tr
         %th= t('simple_form.labels.events.name')
         %th= t('simple_form.labels.events.description')
+        %th= t('simple_form.labels.events.starts_at')
         %th
 
     %tbody
@@ -12,6 +13,7 @@
         %tr
           %td= event.name
           %td= event.description
+          %td= event.starts_at
           %td
             = link_to t('common.edit'), edit_admin_event_path(event), class: 'btn btn-xs btn-default'
             = link_to t('common.destroy'), admin_event_path(event),method: :delete, class: 'btn btn-xs btn-danger', confirm: 'Jesteś pewien?'

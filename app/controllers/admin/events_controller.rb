@@ -17,6 +17,6 @@ class Admin::EventsController <  Admin::AdminController
   private
 
   def permitted_params
-    params.permit(event: [:name, :description, :transition])
+    params.permit(event: [:name, :description, :transition, :starts_at])
   end
 end

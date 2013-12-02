@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, :starts_at, presence: true
 
   attr_accessor :transition
 

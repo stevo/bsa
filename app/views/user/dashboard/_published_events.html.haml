@@ -1,12 +1,9 @@
 %h3= t('events.index.header')
+%br
 .span11
   %ul
-  - decorated_events.each do |event|
-    %li= event.name
-    %br
+  - decorated_events.sort{ |a,b| a.starts_at <=> b.starts_at }.each do |event|
+    %li= link_to event.name, admin_event_path(event)
     =event.description
-
-
-
-
-
+    %br
+    %br
