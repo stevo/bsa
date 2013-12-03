@@ -43,6 +43,7 @@ group :development do
   gem 'rb-fchange', require: false
   gem 'rb-fsevent', require: false
   gem 'rb-inotify', require: false
+  gem 'therubyracer', platforms: :ruby
 end
 
 group :development, :test do
