@@ -1,0 +1,12 @@
+.col-md-4.col-md-offset-4
+  .panel.panel-default
+    .panel-heading= t('links.forgot_password')
+    .panel-body
+      = simple_form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-vertical' } do |f|
+        = devise_error_messages!
+
+        = f.input :email, :autofocus => true
+
+        = f.button :submit, t('links.password.reset'), class: 'btn-priary'
+
+      = render "devise/shared/links"
