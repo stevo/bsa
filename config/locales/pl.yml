@@ -297,6 +297,8 @@ pl:
         unconfirmed: "Adres email nie został potwierdzony"
       already_authenticated: "Jesteś już zalogowany"
     confirmations:
+      new:
+        header: "Resetowanie hasła"
       user:
         confirmed: "Konto potwierdzone pomyślnie"
   simple_form:
