@@ -4,7 +4,7 @@ Bsa::Application.routes.draw do
 
   root to: "user/dashboard#show"
 
-  devise_for :users, controllers: {registrations: 'registrations'}
+  devise_for :users, controllers: {registrations: 'registrations', passwords: 'passwords'}
 
   namespace :guest do
     resource :dashboard, only: [:show], controller: 'dashboard'

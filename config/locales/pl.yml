@@ -338,6 +338,8 @@ pl:
     conditions: "Warunki przyjęcia do stowarzyszenia"
     rights:
       save: "Zapisz zmiany"
+    password:
+      reset: "Wyślij mi instrukcje resetowania hasła"
   enumerations:
     membership:
       state:
