@@ -1,10 +1,8 @@
 class Event < ActiveRecord::Base
+
   validates :name, :starts_at, presence: true
-
   attr_accessor :transition
-
   after_save :process_transition, if: :transition
-
   scope :published, ->{ where(state: 'published') }
 
   state_machine :state, initial: :new do

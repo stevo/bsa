@@ -16,10 +16,8 @@
           %td= event.starts_at
           %td
             = link_to t('common.edit'), edit_admin_event_path(event), class: 'btn btn-xs btn-default'
-            = link_to t('common.destroy'), admin_event_path(event),method: :delete, class: 'btn btn-xs btn-danger', confirm: 'Jesteś pewien?'
+            = link_to t('common.destroy'), admin_event_path(event),
+              method: :delete, class: 'btn btn-xs btn-danger', confirm: t('common.confirm')
             = event.transition_link
 
-
-
 = link_to t('links.event.create'), new_admin_event_path, class: 'btn btn-primary'
-
