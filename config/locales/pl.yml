@@ -357,6 +357,8 @@ pl:
       save: "Zapisz zmiany"
     password:
       reset: "Wyślij mi instrukcje resetowania hasła"
+    confirmation:
+      resend: "Wyślij email aktywacyjny"
   enumerations:
     membership:
       state:
