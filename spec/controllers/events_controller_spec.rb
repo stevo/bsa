@@ -9,8 +9,9 @@ describe Admin::EventsController do
 
   describe "POST 'create'" do
     let(:event_name) { 'Super impreza' }
-    let(:call_request) { post :create, event: {name: event_name} }
-
+    let(:event_starts_at) { Time.now }
+    let(:call_request) { post :create, event: {name: event_name,starts_at: event_starts_at} }
+    binding.pry
     it { expect { call_request }.to change { Event.count }.by(1) }
 
     context "after request" do
