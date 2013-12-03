@@ -26,6 +26,7 @@ Bsa::Application.routes.draw do
       resources :memberships, only: [:update], controller: 'user/memberships'
       resource :rights, controller: 'user/rights'
     end
+    resources :forums
   end
 
   # Make sure this routeset is defined last

@@ -231,6 +231,14 @@ pl:
         actions_header: "Operacje"
         membership_header: "Członkostwo"
         voting_header: "Głosowanie"
+    forum:
+      link:
+        edit: "Edytuj"
+    forums:
+      edit:
+        header: "Edycja forum"
+      index:
+        header: "Fora"
   common:
     destroy: "Usuń"
     confirm: "Jesteś pewien?"
@@ -317,6 +325,12 @@ pl:
       contribution:
         amount: "Kwota"
         expires_at: "Składka wygasa"
+      forum:
+        name: "Nazwa"
+        url: "Url"
+        login_url: "Url logowania"
+        meeting_url: "Url tematu spotkania"
+        state: "Stan"
   links:
     user:
       rights: "Uprawnienia"
@@ -330,6 +344,7 @@ pl:
       cancel: "Usuń moje konto"
       edit: "Zarządzanie kontem"
     admin: "Administracja"
+    forums: "Fora"
     sign_up: "Dołącz do nas!"
     sign_in: "Zaloguj się"
     forgot_password: "Zapomniałeś hasła?"
