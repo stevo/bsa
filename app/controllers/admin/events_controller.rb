@@ -4,7 +4,7 @@ class Admin::EventsController <  Admin::AdminController
   defaults resource_class: Event, collection_name: 'events', instance_name: 'event'
 
   expose(:decorated_event){ resource.decorate }
-  expose(:decorated_events){ collection.decorate }
+  expose(:decorated_events){ collection.decorate.order('starts_at ASC')  }
 
   def create
     create! { admin_events_path }

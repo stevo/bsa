@@ -2,7 +2,7 @@
 %br
 .span11
   %ul
-  - decorated_events.sort{ |a,b| a.starts_at <=> b.starts_at }.each do |event|
+  - decorated_events.each do |event|
     %li= link_to event.name, admin_event_path(event)
     =event.description
     %br
