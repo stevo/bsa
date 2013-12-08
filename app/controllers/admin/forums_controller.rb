@@ -21,7 +21,7 @@ class Admin::ForumsController < ApplicationController
 
   def destroy
     if forum.destroy
-      render :index, notice: 'asdf'
+      render :index
     end
   end
 
