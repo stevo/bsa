@@ -234,11 +234,15 @@ pl:
     forum:
       link:
         edit: "Edytuj"
+        destroy: "Usuń"
+        new: "Nowe"
     forums:
       edit:
         header: "Edycja forum"
       index:
         header: "Fora"
+      new:
+        header: "Nowe forum"
   common:
     destroy: "Usuń"
     confirm: "Jesteś pewien?"
