@@ -11,6 +11,20 @@ class Admin::ForumsController < ApplicationController
     end
   end
 
+  def create
+    if forum.save
+      redirect_to admin_forums_path
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    if forum.destroy
+      render :index, notice: 'asdf'
+    end
+  end
+
   private
   def permitted_params
     params.require(:forum).permit(:name, :url, :login_url, :meeting_url, :state, :user, :password)
