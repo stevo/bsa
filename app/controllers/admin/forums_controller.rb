@@ -14,13 +14,14 @@ class Admin::ForumsController < ApplicationController
   def create
     if forum.save
       redirect_to admin_forums_path
+    else
+      render :new
     end
   end
 
   def destroy
-    if forum.destroy
-      render :index
-    end
+    forum.destroy
+    render :index
   end
 
   private
