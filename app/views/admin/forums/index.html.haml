@@ -5,15 +5,13 @@
       %thead
         %th= t('simple_form.labels.forum.name')
         %th= t('simple_form.labels.forum.url')
-        %th
-        %th
-        %th
+        %th= t('actions')
       %tbody
         - forums.each do |forum|
           %tr
             %td= forum.name
             %td= link_to forum.url, forum.url
-            %td 
-            %td= link_to t('admin.forum.link.edit'), edit_admin_forum_path(forum.id)
-            %td= link_to t('admin.forum.link.destroy'), admin_forum_path(forum.id), method: :delete
+            %td
+              = link_to t('admin.forum.link.edit'), edit_admin_forum_path(forum)
+              = link_to t('admin.forum.link.destroy'), admin_forum_path(forum), method: :delete
   = link_to t('admin.forum.link.new'), new_admin_forum_path
