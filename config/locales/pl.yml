@@ -231,11 +231,6 @@ pl:
         actions_header: "Operacje"
         membership_header: "Członkostwo"
         voting_header: "Głosowanie"
-    forum:
-      link:
-        edit: "Edytuj"
-        destroy: "Usuń"
-        new: "Nowe"
     forums:
       edit:
         header: "Edycja forum"
@@ -245,6 +240,7 @@ pl:
         header: "Nowe forum"
   common:
     destroy: "Usuń"
+    edit: "Edytuj"
     confirm: "Jesteś pewien?"
     new: "Dodaj"
     back: "Powrót"
