@@ -5,7 +5,7 @@ class CreateForums < ActiveRecord::Migration
       t.string :url
       t.string :login_url
       t.string :meeting_url
-      t.boolean :state
+      t.boolean :active
       t.string :user
       t.string :password
 
