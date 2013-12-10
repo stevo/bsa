@@ -25,7 +25,6 @@ describe Admin::ForumsController do
     let!(:forum) { create(:forum) }
 
     it { expect(controller.forum).to eq forum }
-
   end
 
   describe '#create' do
