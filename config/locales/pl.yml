@@ -231,16 +231,16 @@ pl:
         actions_header: "Operacje"
         membership_header: "Członkostwo"
         voting_header: "Głosowanie"
-    forum:
-      link:
-        edit: "Edytuj"
     forums:
       edit:
         header: "Edycja forum"
       index:
         header: "Fora"
+      new:
+        header: "Nowe forum"
   common:
     destroy: "Usuń"
+    edit: "Edytuj"
     confirm: "Jesteś pewien?"
     new: "Dodaj"
     back: "Powrót"
