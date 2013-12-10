@@ -48,5 +48,7 @@ module Bsa
       domain:               'heroku.com',
       enable_starttls_auto: true
     }
+
+    config.active_record.schema_format = :sql
   end
 end

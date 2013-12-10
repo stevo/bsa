@@ -1,0 +1,14 @@
+.col-md-6
+  .panel.panel-default
+    .panel-heading
+      = t('admin.forums.edit.header')
+    .panel-body
+      = simple_form_for [:admin, forum], method: :put  do |f|
+        = f.input :name
+        = f.input :url
+        = f.input :login_url
+        = f.input :meeting_url
+        = f.input :state
+        = f.input :user
+        = f.input :password
+        = f.button :submit
