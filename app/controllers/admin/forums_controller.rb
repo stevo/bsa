@@ -4,19 +4,13 @@ class Admin::ForumsController < ApplicationController
   expose(:forum, attributes: :permitted_params)
 
   def update
-    if forum.save
-      redirect_to admin_forums_path
-    else
-      render :edit
-    end
+    forum.save
+    redirect_to admin_forums_path
   end
 
   def create
-    if forum.save
-      redirect_to admin_forums_path
-    else
-      render :new
-    end
+    forum.save
+    redirect_to admin_forums_path
   end
 
   def destroy
