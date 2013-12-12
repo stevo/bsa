@@ -7,11 +7,20 @@ end
 describe Admin::EventsController do
   include_context 'logged in as admin'
 
+  describe Event do
+    let(:event_name) { 'Super impreza' }
+    let(:event_starts_at) { Time.now }
+    let(:call_request) { post :create, event: {name: event_name,starts_at: event_starts_at} }
+    it "should validate presence of" do
+      should validate_presence_of event.name
+    end
+  end
+
+
   describe "POST 'create'" do
     let(:event_name) { 'Super impreza' }
     let(:event_starts_at) { Time.now }
     let(:call_request) { post :create, event: {name: event_name,starts_at: event_starts_at} }
-    binding.pry
     it { expect { call_request }.to change { Event.count }.by(1) }
 
     context "after request" do
@@ -80,3 +89,6 @@ describe Admin::EventsController do
     it { expect(response).to be_success }
   end
 end
+
+
+

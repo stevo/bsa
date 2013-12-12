@@ -325,6 +325,8 @@ pl:
         description: "Opis"
         starts_at: "Czas rozpoczęcia"
   links:
+    users: "Użytkownicy"
+    events: "Imprezy"
     event:
       create: "Dodaj imprezę"
       save: "Zapisz zmiany"

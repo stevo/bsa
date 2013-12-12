@@ -27,4 +27,12 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def navigation_tab(name)
+    content_tag(:li, class: ('active' if controller.controller_name == name)) do
+    link_to t(name, scope: 'links'), polymorphic_path([:admin, name])
+    end
+  end
+
+
 end

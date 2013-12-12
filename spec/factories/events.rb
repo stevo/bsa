@@ -4,6 +4,7 @@ FactoryGirl.define do
   factory :event do
     name "Super impreza"
     description "Świetna impreza - OMG!"
+    starts_at Time.now
 
     trait :published do
       state 'published'
