@@ -100,6 +100,7 @@ GEM
       sass (~> 3.1)
     compass-rails (2.0.alpha.0)
       compass (>= 0.12.2, < 0.14)
+    curb (0.8.5)
     daemons (1.1.9)
     database_cleaner (1.0.1)
     debug_inspector (0.0.2)
@@ -359,6 +360,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   comfortable_mexican_sofa (~> 1.9.0)
   compass-rails (~> 2.0.alpha.0)
+  curb
   database_cleaner (= 1.0.1)
   decent_exposure
   devise (~> 3.1)
